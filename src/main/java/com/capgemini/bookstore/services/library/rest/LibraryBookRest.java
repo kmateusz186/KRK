@@ -31,11 +31,7 @@ public class LibraryBookRest {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public List<LibraryBookTo> getBooks() {
-		LibraryBookToBuilder ratajczakBase = new LibraryBookToBuilder().withAuthor("Ratajczak").withId(1L);
-		LibraryBookToBuilder ratajczak = ratajczakBase.withTitle("Podstawy");
-		LibraryBookToBuilder ratajczak2 = ratajczak.withTitle("Podstawy 2");
-
-		return Arrays.asList(ratajczak.build(), ratajczak2.build());
+		return mapper.mapAsList(service.readBooks(), LibraryBookTo.class);
 	}
 
 	@ResponseStatus(HttpStatus.CREATED)

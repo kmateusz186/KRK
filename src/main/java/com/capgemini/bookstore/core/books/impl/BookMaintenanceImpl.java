@@ -70,6 +70,7 @@ public class BookMaintenanceImpl implements BookMaintenance {
 
 	private BookBo saveBook(BookBo bo) {
 
+		System.out.println("Saving book");
 		BookEntity book = this.mapper.map(bo, BookEntity.class);
 		BookEntity savedBook = this.bookRepository.saveAndFlush(book);
 		return this.mapper.map(savedBook, BookBo.class);
