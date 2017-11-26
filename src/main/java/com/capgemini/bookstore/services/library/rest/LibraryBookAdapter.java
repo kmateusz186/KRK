@@ -1,7 +1,10 @@
 package com.capgemini.bookstore.services.library.rest;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,9 +22,23 @@ public class LibraryBookAdapter {
 	@Autowired
 	private MapperFacade mapper;
 
+	@Autowired
+	private RestTemplateBuilder restTemplateBuilder;
+
+	private RestTemplate restTemplate;
+
+	@PostConstruct
+	public void buildRestTemplate() {
+		this.restTemplate = restTemplateBuilder.build();
+	}
+
 	public void sendBookDeletionRequest(BookBo book) {
 
-		new RestTemplate().postForObject(libraryUrl, mapper.map(book, LibraryBookTo.class), LibraryBookTo.class);
+		restTemplate.postForObject(libraryUrl, mapper.map(book, LibraryBookTo.class), LibraryBookTo.class);
+	}
+
+	RestTemplate getRestTemplate() {
+		return restTemplate;
 	}
 
 }
