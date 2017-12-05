@@ -33,7 +33,7 @@ export class BookDetailsComponent implements OnInit {
   };
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) {
-    this.currentBook = new Book();
+    this.currentBook = {};
     this.submitted = false;
   }
 

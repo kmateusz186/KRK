@@ -14,7 +14,7 @@ export class BookService {
   findOne(id: number): Book {
     const originalBook = this.findById(id);
     if (originalBook) {
-      return Book.from(originalBook);
+      return Object.assign({}, originalBook);
     }
   }
 
@@ -55,44 +55,8 @@ export class BookService {
   }
 }
 
-export class Book {
-  private _id: number;
-  private _author: string;
-  private _title: string;
-
-  static from(anotherBook: Book): Book {
-    const newBook: Book = new Book(anotherBook.author, anotherBook.title);
-    newBook.id = anotherBook.id;
-
-    return newBook;
-  }
-
-  constructor(authors?: string, title?: string) {
-    this._author = authors;
-    this._title = title;
-  }
-
-  get id(): number {
-    return this._id;
-  }
-
-  get author(): string {
-    return this._author;
-  }
-
-  get title(): string {
-    return this._title;
-  }
-
-  set id(value: number) {
-    this._id = value;
-  }
-
-  set title(value: string) {
-    this._title = value;
-  }
-
-  set author(value: string) {
-    this._author = value;
-  }
+export interface Book {
+   id?: number;
+   author?: string;
+   title?: string;
 }
