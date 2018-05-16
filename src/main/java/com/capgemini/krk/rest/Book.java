@@ -1,4 +1,4 @@
-package com.capgemini.books.rest;
+package com.capgemini.krk.rest;
 
 public class Book {
   private Long id;

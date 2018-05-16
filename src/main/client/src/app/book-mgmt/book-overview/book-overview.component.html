@@ -13,8 +13,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let book of currentBooks">
-        <td>{{book.author}}</td>
-        <td>{{book.title}}</td>
+        <td>{{book.level}}</td>
+        <td>{{book.profile}}</td>
         <td><a [routerLink]="['/app/book', book.id]">Details</a></td>
       </tr>
       </tbody>

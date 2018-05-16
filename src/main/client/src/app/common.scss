@@ -1,0 +1,33 @@
+.dash-board-element {
+  background-color: dodgerblue;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  color: white;
+  padding-top: 30px;
+  margin: 5px;
+  cursor: pointer;
+  float: left;
+}
+
+.dash-board-element:hover, .dash-board-element:focus, .dash-board-element:active, .dash-board-element.active {
+  background-color: slategray;
+}
+
+.modal-dialog-margin {
+  margin-top: 10%;
+}
+
+.blue-theme {
+  background-color: #1E90FF;
+  color: white;
+}
+
+.btn-primary.blue-theme {
+
+}
+
+.input-margin {
+  margin: 5px;
+}

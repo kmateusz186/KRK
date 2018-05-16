@@ -1,7 +1,20 @@
-.oasp-version {
-  font-size: 0.5rem;
+.nav-text {
+  color: black;
 }
 
-.version-template {
-  font-size: 0.8rem;
+.nav-text:hover, .nav-text:focus, .nav-text:active, .nav-text.active {
+  color: blue;
+}
+
+.navbar-margin {
+  margin-bottom: 15px;
+}
+
+li {
+  display: inline-block;
+  float: left;
+}
+
+nav {
+  background: #d3d3d3;
 }

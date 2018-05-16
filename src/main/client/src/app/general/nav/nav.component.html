@@ -1,29 +1,19 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right"
-          type="button"
-          aria-controls="navbarSupportedContent"
-          aria-label="Toggle navigation"
-          [attr.aria-expanded]="!navCollapsed"
-          [class.collapsed]="navCollapsed"
-          (click)="toggleNavigation()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">
-      <ng-template #oaspVersion><span class="version-template">Version: {{currentBuild.version}}, built at {{currentBuild.timestamp}}</span></ng-template>
-      <div class="d-flex flex-column" placement="right"
-           [ngbTooltip]="oaspVersion" >
-          <img src="assets/oasp-logo-72dpi.png" height="25">
-          <span class="oasp-version">Ver. {{currentBuild.version}}</span>
-      </div>
-  </a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="!navCollapsed">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/app/books">Book Overview</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/app/book">New Book</a>
-      </li>
-    </ul>
+<nav class="navbar-fixed-top navbar-inverse navbar-margin navbar-dark">
+  <div class="row">
+    <div class="col-lg-3">
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/app/home">
+        <h3 class="nav-text">Krajowe Ramy Kwalifikacji</h3>
+      </a>
+    </div>
+    <div class="col-lg-9">
+      <ul>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link nav-text" routerLink="/app/book/overview">Books</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link nav-text" routerLink="/app/change-suggestion/overview">Change suggestion</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

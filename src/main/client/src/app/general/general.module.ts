@@ -3,6 +3,7 @@ import {CommonModule} from "@angular/common";
 import {NavComponent} from "./nav/nav.component";
 import {RouterModule} from "@angular/router";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     RouterModule,
     NgbModule.forRoot()
   ],
-  declarations: [NavComponent],
+  declarations: [NavComponent, HomeComponent],
   exports: [NavComponent]
 })
 export class GeneralModule {

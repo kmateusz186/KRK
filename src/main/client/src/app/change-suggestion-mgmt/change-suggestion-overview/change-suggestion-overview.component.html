@@ -1,0 +1,64 @@
+<section class="container-fluid">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Change suggestion:</h3>
+    </div>
+    <div class="panel-body">
+      <section [hidden]="thereAreChangeSuggestionsToDisplay()">
+        <p>No change suggestions available. <a routerLink="/app/book">Add a new one</a>.</p>
+      </section>
+      <section>
+        <div *ngFor="let changeSuggestion of currentChangeSuggestions" class="dash-board-element"
+             data-toggle="modal" data-target="#changeSuggestionModal" (click)="selectChangeSuggestion(changeSuggestion)">
+          {{changeSuggestion.educationProgram.period}}
+        </div>
+      </section>
+      <section>
+        <div id="changeSuggestionModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-dialog-margin">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header blue-theme">
+                <h4 class="modal-title">Change suggestion details</h4>
+              </div>
+              <div class="modal-body">
+                <table class="table-responsive table table-bordered table-striped">
+                  <tr>
+                    <td>Id:</td>
+                    <td>{{selectedChangeSuggestion.educationProgram.id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Level:</td>
+                    <td>{{selectedChangeSuggestion.educationProgram.level}}</td>
+                  </tr>
+                  <tr>
+                    <td>Profile:</td>
+                    <td>{{selectedChangeSuggestion.educationProgram.profile}}</td>
+                  </tr>
+                  <tr>
+                    <td>Course:</td>
+                    <td>{{selectedChangeSuggestion.educationProgram.course}}</td>
+                  </tr>
+                  <tr>
+                    <td>Proposition:</td>
+                    <td>{{selectedChangeSuggestion.proposition}}</td>
+                  </tr>
+                  <tr>
+                    <td>Reason:</td>
+                    <td>{{selectedChangeSuggestion.reason}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn blue-theme" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</section>

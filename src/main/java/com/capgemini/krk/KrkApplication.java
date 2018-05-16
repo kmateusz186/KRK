@@ -1,12 +1,12 @@
-package com.capgemini.books;
+package com.capgemini.krk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BooksApplication {
+public class KrkApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BooksApplication.class, args);
+		SpringApplication.run(KrkApplication.class, args);
 	}
 }

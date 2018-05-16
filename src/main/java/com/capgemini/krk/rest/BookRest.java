@@ -1,4 +1,4 @@
-package com.capgemini.books.rest;
+package com.capgemini.krk.rest;
 
 import java.util.Arrays;
 import java.util.List;

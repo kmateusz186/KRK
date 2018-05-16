@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.capgemini.krk.entities.CeleprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.CeleprzedmiotuKartaprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.EwaluatorEntity</class>
+        <class>com.capgemini.krk.entities.FormakursuEntity</class>
+        <class>com.capgemini.krk.entities.GrupakursowEntity</class>
+        <class>com.capgemini.krk.entities.KartaprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.KartaprzedmiotuNarzedziadydaktyczneEntity</class>
+        <class>com.capgemini.krk.entities.KategoriaekEntity</class>
+        <class>com.capgemini.krk.entities.KierunkowyefektksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.KierunkowyefektksztalceniaPrzedmiotEntity</class>
+        <class>com.capgemini.krk.entities.KierunkowyefektksztalceniaPrzedmiotowyefektksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.KursEntity</class>
+        <class>com.capgemini.krk.entities.ModulksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.ModulksztalceniaModulksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.ModulkursowEntity</class>
+        <class>com.capgemini.krk.entities.ModulkursowKursEntity</class>
+        <class>com.capgemini.krk.entities.NarzedziadydaktyczneEntity</class>
+        <class>com.capgemini.krk.entities.ObszarnaukiEntity</class>
+        <class>com.capgemini.krk.entities.ObszarwiedzyksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.OpiekunprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.OpiekunprzedmiotuKartaprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.PlanstudiowEntity</class>
+        <class>com.capgemini.krk.entities.PoziomksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.ProfilEntity</class>
+        <class>com.capgemini.krk.entities.ProgramksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.ProgramstudiowEntity</class>
+        <class>com.capgemini.krk.entities.ProgramstudiowModulksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.PrzedmiotEntity</class>
+        <class>com.capgemini.krk.entities.PrzedmiotowyefektksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.PrzedmiotowyefektksztalceniaKartaprzedmiotuEntity</class>
+        <class>com.capgemini.krk.entities.RodzajEntity</class>
+        <class>com.capgemini.krk.entities.SemestrEntity</class>
+        <class>com.capgemini.krk.entities.SemestrModulkursowEntity</class>
+        <class>com.capgemini.krk.entities.SpecjalnosciowyefektksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.SpecjalnosciowyefektksztalceniaKierunkowyefektksztalceniaEntity</class>
+        <class>com.capgemini.krk.entities.SposobzaliczeniaEntity</class>
+        <class>com.capgemini.krk.entities.SugestiazmianEntity</class>
+        <class>com.capgemini.krk.entities.TresciprogramoweEntity</class>
+        <class>com.capgemini.krk.entities.TrybEntity</class>
+        <class>com.capgemini.krk.entities.TypkursuEntity</class>
+        <class>com.capgemini.krk.entities.TypmoduluEntity</class>
+        <class>com.capgemini.krk.entities.TypzajecEntity</class>
+        <class>com.capgemini.krk.entities.WydzialEntity</class>
+        <class>com.capgemini.krk.entities.ChangesuggestionEntity</class>
+        <class>com.capgemini.krk.entities.EducationlevelEntity</class>
+        <class>com.capgemini.krk.entities.EducationprogramEntity</class>
+        <class>com.capgemini.krk.entities.EvaluatorEntity</class>
+        <class>com.capgemini.krk.entities.FacultyEntity</class>
+        <class>com.capgemini.krk.entities.ModeEntity</class>
+        <class>com.capgemini.krk.entities.ProfileEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/krkdb"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
