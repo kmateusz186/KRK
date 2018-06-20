@@ -3,10 +3,10 @@ import {ChangeSuggestionService} from "../change-suggestion.service";
 import {ChangeSuggestion} from '../../model/change-suggestion.model';
 
 @Component({
-  selector: 'app-change-suggestion-overview',
-  templateUrl: './change-suggestion-overview.component.html'
+  selector: 'app-change-suggestion-ep-overview',
+  templateUrl: './change-suggestion-ep-overview.component.html'
 })
-export class ChangeSuggestionOverviewComponent implements OnInit {
+export class ChangeSuggestionEpOverviewComponent implements OnInit {
 
   currentChangeSuggestions: ChangeSuggestion[];
 
@@ -16,7 +16,7 @@ export class ChangeSuggestionOverviewComponent implements OnInit {
   selectedChangeSuggestion: ChangeSuggestion = {
     id: null,
     evaluator: null,
-    educationProgram: {id: null, level: null, profile: null, course: null, specialization: null, mode: null, period: null, faculty: null, changeSuggestions: null},
+    educationProgram: {id: null, level: null, profile: null, course: null, specialization: null, mode: null, period: null, faculty: null, changeSuggestions: null, courseEducationEffects: null},
     proposition: null,
     reason: null,
   };

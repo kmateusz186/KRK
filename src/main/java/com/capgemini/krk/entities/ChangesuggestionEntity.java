@@ -9,8 +9,8 @@ public class ChangesuggestionEntity {
     private int id;
     private String proposition;
     private String reason;
-    private EducationprogramEntity educationProgram;
     private EvaluatorEntity evaluator;
+    private EducationprogramEntity educationProgram;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -23,7 +23,7 @@ public class ChangesuggestionEntity {
     }
 
     @Basic
-    @Column(name = "Proposition", nullable = false, length = 255)
+    @Column(name = "proposition", nullable = false, length = 255)
     public String getProposition() {
         return proposition;
     }
@@ -33,7 +33,7 @@ public class ChangesuggestionEntity {
     }
 
     @Basic
-    @Column(name = "Reason", nullable = false, length = 255)
+    @Column(name = "reason", nullable = false, length = 255)
     public String getReason() {
         return reason;
     }
@@ -59,22 +59,22 @@ public class ChangesuggestionEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "EducationProgram", referencedColumnName = "ID", nullable = false)
-    public EducationprogramEntity getEducationProgram() {
-        return educationProgram;
-    }
-
-    public void setEducationProgram(EducationprogramEntity educationProgram) {
-        this.educationProgram = educationProgram;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Evaluator", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "evaluator", referencedColumnName = "ID", nullable = false)
     public EvaluatorEntity getEvaluator() {
         return evaluator;
     }
 
     public void setEvaluator(EvaluatorEntity evaluator) {
         this.evaluator = evaluator;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "education_program", referencedColumnName = "ID")
+    public EducationprogramEntity getEducationProgram() {
+        return educationProgram;
+    }
+
+    public void setEducationProgram(EducationprogramEntity educationProgram) {
+        this.educationProgram = educationProgram;
     }
 }

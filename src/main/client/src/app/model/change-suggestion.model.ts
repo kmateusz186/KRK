@@ -17,12 +17,14 @@ export interface EducationProgram {
   period: string;
   faculty: Faculty;
   changeSuggestions: ChangeSuggestion[];
+  courseEducationEffects: CourseEducationEffect[];
 }
 
 export interface Evaluator {
   id: number;
   name: string;
   surname: string;
+  educationPrograms: EducationProgram[];
 }
 
 export interface EducationLevel {
@@ -41,6 +43,31 @@ export interface Mode {
 }
 
 export interface Faculty {
+  id: number;
+  name: string;
+}
+
+export interface CourseEducationEffect {
+  id: number;
+  symbol: string;
+  educationEffect: string;
+  componentCode: string;
+  areaOfKnowledge: AreaofKnowledge;
+  category: EECategory;
+  scienceArea: ScienceArea;
+}
+
+export interface AreaofKnowledge {
+  id: number;
+  name: string;
+}
+
+export interface EECategory {
+  id: number;
+  name: string;
+}
+
+export interface ScienceArea {
   id: number;
   name: string;
 }

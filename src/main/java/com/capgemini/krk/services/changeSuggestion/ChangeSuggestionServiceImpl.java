@@ -1,7 +1,7 @@
-package com.capgemini.krk.services;
+package com.capgemini.krk.services.changeSuggestion;
 
-import com.capgemini.krk.TO.ChangeSuggestion.ChangeSuggestionTO;
-import com.capgemini.krk.TO.ChangeSuggestion.ChangeSuggestionsTO;
+import com.capgemini.krk.TO.changeSuggestion.ChangeSuggestionTO;
+import com.capgemini.krk.TO.changeSuggestion.ChangeSuggestionsTO;
 import com.capgemini.krk.entities.ChangesuggestionEntity;
 import com.capgemini.krk.mappers.ChangeSuggestionMapper;
 import com.capgemini.krk.repositories.changeSuggestion.ChangeSuggestionRepository;
@@ -48,6 +48,32 @@ public class ChangeSuggestionServiceImpl implements ChangeSuggestionService {
         List<ChangeSuggestionTO> changeSuggestionTOList = changeSuggestions.stream()
                     .map(ChangeSuggestionMapper::mapToTO)
                     .collect(Collectors.toList());
+
+        ChangeSuggestionsTO changeSuggestionsTO = new ChangeSuggestionsTO(changeSuggestionTOList);
+
+        return changeSuggestionsTO;
+    }
+
+    @Override
+    public ChangeSuggestionsTO findByEducationProgramIsNull() {
+        List<ChangesuggestionEntity> changeSuggestions = changeSuggestionRepository.findAll();
+
+        List<ChangeSuggestionTO> changeSuggestionTOList = changeSuggestions.stream()
+                .map(ChangeSuggestionMapper::mapToTO)
+                .collect(Collectors.toList());
+
+        ChangeSuggestionsTO changeSuggestionsTO = new ChangeSuggestionsTO(changeSuggestionTOList);
+
+        return changeSuggestionsTO;
+    }
+
+    @Override
+    public ChangeSuggestionsTO findByEducationEffectIsNull() {
+        List<ChangesuggestionEntity> changeSuggestions = changeSuggestionRepository.findAll();
+
+        List<ChangeSuggestionTO> changeSuggestionTOList = changeSuggestions.stream()
+                .map(ChangeSuggestionMapper::mapToTO)
+                .collect(Collectors.toList());
 
         ChangeSuggestionsTO changeSuggestionsTO = new ChangeSuggestionsTO(changeSuggestionTOList);
 

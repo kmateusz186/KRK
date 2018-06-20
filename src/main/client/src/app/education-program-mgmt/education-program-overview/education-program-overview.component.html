@@ -1,0 +1,31 @@
+<section class="container-fluid">
+  <section [hidden]="thereAreEducationProgramsToDisplay()">
+    <p>Brak programów kształcenia.</p>
+  </section>
+  <section [hidden]="!thereAreEducationProgramsToDisplay()">
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Cykl kształcenia</th>
+        <th>Kierunek</th>
+        <th>Poziom</th>
+        <th>Tryb</th>
+        <th>Wydział</th>
+        <th>Specjalność</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let educationProgram of currentEducationPrograms">
+        <td>{{educationProgram.period}}</td>
+        <td>{{educationProgram.course}}</td>
+        <td>{{educationProgram.level}}</td>
+        <td>{{educationProgram.mode}}</td>
+        <td>{{educationProgram.faculty}}</td>
+        <td>{{educationProgram.specialization}}</td>
+        <td><a [routerLink]="['/app/change-suggestion-ep/details', changeSuggestion.id]">Plan</a> <a [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Program</a> <a [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Edytuj</a> <a [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Usuń</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

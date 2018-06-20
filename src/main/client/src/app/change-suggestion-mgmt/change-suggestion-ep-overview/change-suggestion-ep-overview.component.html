@@ -1,0 +1,25 @@
+<section class="container-fluid">
+  <section [hidden]="thereAreChangeSuggestionsToDisplay()">
+    <p>Brak sugestii zmian.</p>
+  </section>
+  <section [hidden]="!thereAreChangeSuggestionsToDisplay()">
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Numer</th>
+        <th>Dotyczy</th>
+        <th>Propozycja</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let changeSuggestion of currentChangeSuggestions">
+        <td>{{changeSuggestion.id}}</td>
+        <td>{{changeSuggestion.educationProgram.course}}, {{changeSuggestion.educationProgram.period}}</td>
+        <td>{{changeSuggestion.proposition}}</td>
+        <td><a [routerLink]="['/app/change-suggestion-ep/details', changeSuggestion.id]">Szczegóły</a> <a [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Inicjacja</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

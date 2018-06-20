@@ -1,6 +1,7 @@
 package com.capgemini.krk.entities;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,10 +11,14 @@ public class EducationprogramEntity {
     private String course;
     private String specialization;
     private String period;
+    private List<ChangesuggestionEntity> changeSuggestions;
+    private List<CourseeducationeffectEntity> courseEducationEffects;
     private FacultyEntity faculty;
     private EducationlevelEntity level;
-    private ProfileEntity profile;
     private ModeEntity mode;
+    private ProfileEntity profile;
+    private List<StudiesplanEntity> studiesPlans;
+    private StudiesprogramEntity studiesProgram;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -26,7 +31,7 @@ public class EducationprogramEntity {
     }
 
     @Basic
-    @Column(name = "Course", nullable = false, length = 255)
+    @Column(name = "course", nullable = false, length = 255)
     public String getCourse() {
         return course;
     }
@@ -36,7 +41,7 @@ public class EducationprogramEntity {
     }
 
     @Basic
-    @Column(name = "Specialization", nullable = false, length = 255)
+    @Column(name = "specialization", nullable = false, length = 255)
     public String getSpecialization() {
         return specialization;
     }
@@ -46,7 +51,7 @@ public class EducationprogramEntity {
     }
 
     @Basic
-    @Column(name = "Period", nullable = false, length = 255)
+    @Column(name = "period", nullable = false, length = 255)
     public String getPeriod() {
         return period;
     }
@@ -72,8 +77,26 @@ public class EducationprogramEntity {
         return Objects.hash(id, course, specialization, period);
     }
 
+    @OneToMany(mappedBy = "educationProgram")
+    public List<ChangesuggestionEntity> getChangeSuggestions() {
+        return changeSuggestions;
+    }
+
+    public void setChangeSuggestions(List<ChangesuggestionEntity> changeSuggestions) {
+        this.changeSuggestions = changeSuggestions;
+    }
+
+    @OneToMany(mappedBy = "educationProgram")
+    public List<CourseeducationeffectEntity> getCourseEducationEffects() {
+        return courseEducationEffects;
+    }
+
+    public void setCourseEducationEffects(List<CourseeducationeffectEntity> courseEducationEffects) {
+        this.courseEducationEffects = courseEducationEffects;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "Faculty", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "faculty", referencedColumnName = "ID", nullable = false)
     public FacultyEntity getFaculty() {
         return faculty;
     }
@@ -83,7 +106,7 @@ public class EducationprogramEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Level", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "level", referencedColumnName = "ID", nullable = false)
     public EducationlevelEntity getLevel() {
         return level;
     }
@@ -93,7 +116,17 @@ public class EducationprogramEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Profile", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "mode", referencedColumnName = "ID", nullable = false)
+    public ModeEntity getMode() {
+        return mode;
+    }
+
+    public void setMode(ModeEntity mode) {
+        this.mode = mode;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "profile", referencedColumnName = "ID", nullable = false)
     public ProfileEntity getProfile() {
         return profile;
     }
@@ -102,13 +135,21 @@ public class EducationprogramEntity {
         this.profile = profile;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Mode", referencedColumnName = "ID", nullable = false)
-    public ModeEntity getMode() {
-        return mode;
+    @OneToMany(mappedBy = "educationProgram")
+    public List<StudiesplanEntity> getStudiesPlans() {
+        return studiesPlans;
     }
 
-    public void setMode(ModeEntity mode) {
-        this.mode = mode;
+    public void setStudiesPlans(List<StudiesplanEntity> studiesPlans) {
+        this.studiesPlans = studiesPlans;
+    }
+
+    @OneToOne(mappedBy = "educationProgram")
+    public StudiesprogramEntity getStudiesProgram() {
+        return studiesProgram;
+    }
+
+    public void setStudiesProgram(StudiesprogramEntity studiesProgram) {
+        this.studiesProgram = studiesProgram;
     }
 }

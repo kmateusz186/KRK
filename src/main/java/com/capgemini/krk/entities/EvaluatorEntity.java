@@ -21,7 +21,7 @@ public class EvaluatorEntity {
     }
 
     @Basic
-    @Column(name = "Name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false, length = 255)
     public String getName() {
         return name;
     }
@@ -31,7 +31,7 @@ public class EvaluatorEntity {
     }
 
     @Basic
-    @Column(name = "Surname", nullable = false, length = 255)
+    @Column(name = "surname", nullable = false, length = 255)
     public String getSurname() {
         return surname;
     }

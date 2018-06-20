@@ -11,9 +11,22 @@
           <a class="nav-link nav-text" routerLink="/app/book/overview">Books</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link nav-text" routerLink="/app/change-suggestion/overview">Change suggestion</a>
+          <div class="dropdown">
+            <button class="dropbtn">Sugestie zmian
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ep/overview">Planów, programów</a>
+              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ef/overview">Efektów</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link nav-text" routerLink="/app/education-program/overview">Programy kształcenia</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+

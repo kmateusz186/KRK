@@ -10,6 +10,8 @@ import {BookService} from './book-mgmt/book.service';
 import {BookMgmtModule} from './book-mgmt/book-mgmt.module';
 import {ChangeSuggestionMgmtModule} from './change-suggestion-mgmt/change-suggestion-mgmt.module';
 import {ChangeSuggestionService} from './change-suggestion-mgmt/change-suggestion.service';
+import {EducationProgramMgmtModule} from './education-program-mgmt/education-program-mgmt.module';
+import {EducationProgramService} from './education-program-mgmt/education-program.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,10 @@ import {ChangeSuggestionService} from './change-suggestion-mgmt/change-suggestio
     GeneralModule,
     BookMgmtModule,
     GeneralModule,
-    ChangeSuggestionMgmtModule
+    ChangeSuggestionMgmtModule,
+    EducationProgramMgmtModule
   ],
-  providers: [BookService, ChangeSuggestionService],
+  providers: [BookService, ChangeSuggestionService, EducationProgramService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

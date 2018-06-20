@@ -1,18 +1,19 @@
 package com.capgemini.krk.mappers;
 
-import com.capgemini.krk.TO.ChangeSuggestion.ChangeSuggestionTO;
+import com.capgemini.krk.TO.areaOfKnowledge.AreaOfKnowledgeTO;
+import com.capgemini.krk.TO.changeSuggestion.ChangeSuggestionTO;
+import com.capgemini.krk.TO.changeSuggestion.ChangeSuggestionsTO;
+import com.capgemini.krk.TO.courseEducationEffect.CourseEducationEffectTO;
 import com.capgemini.krk.TO.educationLevel.EducationLevelTO;
 import com.capgemini.krk.TO.educationProgram.EducationProgramTO;
+import com.capgemini.krk.TO.eeCategory.EECategoryTO;
 import com.capgemini.krk.TO.evaluator.EvaluatorTO;
 import com.capgemini.krk.TO.faculty.FacultyTO;
 import com.capgemini.krk.TO.mode.ModeTO;
 import com.capgemini.krk.TO.profile.ProfileTO;
+import com.capgemini.krk.TO.scienceArea.ScienceAreaTO;
 import com.capgemini.krk.entities.*;
-import lombok.extern.log4j.Log4j;
 import org.modelmapper.ModelMapper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ChangeSuggestionMapper {
 
@@ -54,22 +55,34 @@ public class ChangeSuggestionMapper {
     }
 
     public static ChangeSuggestionTO mapToTO(ChangesuggestionEntity changeSuggestion) {
-        EducationprogramEntity educationProgram = changeSuggestion.getEducationProgram();
-        int idEp = educationProgram.getId();
-        EducationLevelTO educationLevelTO = new EducationLevelTO(educationProgram.getLevel().getId(),educationProgram.getLevel().getName());
-        ProfileTO profileTO = new ProfileTO(educationProgram.getProfile().getId(),educationProgram.getProfile().getName());
-        String course = educationProgram.getCourse();
-        String specialization = educationProgram.getSpecialization();
-        ModeTO modeTO = new ModeTO(educationProgram.getMode().getId(),educationProgram.getMode().getName());
-        String period = educationProgram.getPeriod();
-        FacultyTO facultyTO = new FacultyTO(educationProgram.getFaculty().getId(), educationProgram.getFaculty().getName());
-        EducationProgramTO educationProgramTO = new EducationProgramTO(idEp, educationLevelTO, profileTO, course, specialization, modeTO, period, facultyTO);
-        EvaluatorTO evaluatorTO = new EvaluatorTO(changeSuggestion.getEvaluator().getId(), changeSuggestion.getEvaluator().getName(), changeSuggestion.getEvaluator().getSurname());
         int id = changeSuggestion.getId();
         String proposition = changeSuggestion.getProposition();
         String reason = changeSuggestion.getReason();
-        ChangeSuggestionTO changeSuggestionTO = new ChangeSuggestionTO(id, evaluatorTO, educationProgramTO, proposition, reason);
-
+        EducationprogramEntity educationProgram = changeSuggestion.getEducationProgram();
+        EvaluatorTO evaluatorTO = new EvaluatorTO(changeSuggestion.getEvaluator().getId(), changeSuggestion.getEvaluator().getName(), changeSuggestion.getEvaluator().getSurname());
+        ChangeSuggestionTO changeSuggestionTO = null;
+        if(educationProgram != null) {
+            int idEp = educationProgram.getId();
+            EducationLevelTO educationLevelTO = new EducationLevelTO(educationProgram.getLevel().getId(),educationProgram.getLevel().getName());
+            ProfileTO profileTO = new ProfileTO(educationProgram.getProfile().getId(),educationProgram.getProfile().getName());
+            String course = educationProgram.getCourse();
+            String specialization = educationProgram.getSpecialization();
+            ModeTO modeTO = new ModeTO(educationProgram.getMode().getId(),educationProgram.getMode().getName());
+            String period = educationProgram.getPeriod();
+            FacultyTO facultyTO = new FacultyTO(educationProgram.getFaculty().getId(), educationProgram.getFaculty().getName());
+            EducationProgramTO educationProgramTO = new EducationProgramTO(idEp, educationLevelTO, profileTO, course, specialization, modeTO, period, facultyTO);
+            changeSuggestionTO = new ChangeSuggestionTO(id, evaluatorTO, educationProgramTO, proposition, reason);
+        } /*else {
+            int idEe = courseEducationEffect.getId();
+            String symbol = courseEducationEffect.getSymbol();
+            String educationEffect = courseEducationEffect.getEducationEffect();
+            String componentCode = courseEducationEffect.getComponentCode();
+            AreaOfKnowledgeTO areaOfKnowledgeTO = new AreaOfKnowledgeTO(courseEducationEffect.getAreaOfKnowledge().getId(), courseEducationEffect.getAreaOfKnowledge().getName());
+            EECategoryTO eeCategoryTO = new EECategoryTO(courseEducationEffect.getCategory().getId(), courseEducationEffect.getCategory().getName());
+            ScienceAreaTO scienceAreaTO = new ScienceAreaTO(courseEducationEffect.getScienceArea().getId(), courseEducationEffect.getScienceArea().getName());
+            CourseEducationEffectTO courseEducationEffectTO = new CourseEducationEffectTO(idEe, symbol, educationEffect, componentCode, areaOfKnowledgeTO, eeCategoryTO, scienceAreaTO);
+            changeSuggestionTO = new ChangeSuggestionTO(id, evaluatorTO, null, proposition, reason, courseEducationEffectTO);
+        } */
         return changeSuggestionTO;
     }
 

@@ -1,0 +1,37 @@
+<section class="container-fluid">
+
+  <div class="alert alert-success" role="alert" *ngIf="showNameChanged">Name changed</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Sugestia zmian:</h3></div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-responsive">
+        <tr>
+          <td>ID:</td>
+          <td><div class="form-control gray-bg">{{changeSuggestion.id}}</div></td>
+        </tr>
+        <tr>
+          <td>Propozycja:</td>
+          <td><div class="form-control gray-bg">{{changeSuggestion.proposition}}<br>&nbsp;<br></div></td>
+        </tr>
+        <tr>
+          <td>Uzasadnienie:</td>
+          <td><div class="form-control gray-bg">{{changeSuggestion.reason}}<br><br></div></td>
+        </tr>
+        <tr>
+          <td>Autor:</td>
+          <td><div class="form-control gray-bg">{{changeSuggestion.evaluator.name}} {{changeSuggestion.evaluator.surname}}</div></td>
+        </tr>
+        <tr>
+          <td>Dotyczy efektu kształcenia z programu:</td>
+          <td><div class="form-control gray-bg">{{changeSuggestion.educationProgram.period}}, {{changeSuggestion.educationProgram.course}}<br>{{changeSuggestion.educationProgram.level.name}}, {{changeSuggestion.educationProgram.mode.name}}</div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>

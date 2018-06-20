@@ -20,7 +20,7 @@ public class FacultyEntity {
     }
 
     @Basic
-    @Column(name = "Name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false, length = 255)
     public String getName() {
         return name;
     }

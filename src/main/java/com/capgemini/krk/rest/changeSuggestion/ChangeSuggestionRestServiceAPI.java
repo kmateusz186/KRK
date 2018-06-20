@@ -1,7 +1,7 @@
 package com.capgemini.krk.rest.changeSuggestion;
 
-import com.capgemini.krk.TO.ChangeSuggestion.ChangeSuggestionsTO;
-import com.capgemini.krk.services.ChangeSuggestionService;
+import com.capgemini.krk.TO.changeSuggestion.ChangeSuggestionsTO;
+import com.capgemini.krk.services.changeSuggestion.ChangeSuggestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

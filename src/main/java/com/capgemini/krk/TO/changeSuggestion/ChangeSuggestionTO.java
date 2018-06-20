@@ -1,8 +1,7 @@
-package com.capgemini.krk.TO.ChangeSuggestion;
+package com.capgemini.krk.TO.changeSuggestion;
 
 import com.capgemini.krk.TO.educationProgram.EducationProgramTO;
 import com.capgemini.krk.TO.evaluator.EvaluatorTO;
-import lombok.*;
 
 public class ChangeSuggestionTO {
 
@@ -22,6 +21,9 @@ public class ChangeSuggestionTO {
         this.educationProgram = educationProgram;
         this.proposition = proposition;
         this.reason = reason;
+    }
+
+    public ChangeSuggestionTO() {
     }
 
     public int getId() {
@@ -63,4 +65,5 @@ public class ChangeSuggestionTO {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
 }
