@@ -6,18 +6,18 @@ public class EducationProgramsTO {
 
     private List<EducationProgramTO> educationPrograms;
 
-    public EducationProgramsTO(List<EducationProgramTO> changeSuggestions) {
-        this.educationPrograms = changeSuggestions;
+    public EducationProgramsTO(List<EducationProgramTO> educationPrograms) {
+        this.educationPrograms = educationPrograms;
     }
 
     public EducationProgramsTO() {
     }
 
-    public List<EducationProgramTO> getChangeSuggestions() {
+    public List<EducationProgramTO> getEducationPrograms() {
         return educationPrograms;
     }
 
-    public void setChangeSuggestions(List<EducationProgramTO> educationPrograms) {
+    public void setEducationPrograms(List<EducationProgramTO> educationPrograms) {
         this.educationPrograms = educationPrograms;
     }
 }

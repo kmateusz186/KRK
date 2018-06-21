@@ -11,12 +11,12 @@ public class EducationprogramEntity {
     private String course;
     private String specialization;
     private String period;
-    private List<ChangesuggestionEntity> changeSuggestions;
-    private List<CourseeducationeffectEntity> courseEducationEffects;
     private FacultyEntity faculty;
     private EducationlevelEntity level;
     private ModeEntity mode;
     private ProfileEntity profile;
+    private List<ChangesuggestionEntity> changeSuggestions;
+    private List<CourseeducationeffectEntity> courseEducationEffects;
     private List<StudiesplanEntity> studiesPlans;
     private StudiesprogramEntity studiesProgram;
 
