@@ -28,6 +28,9 @@ public class EducationProgramTO {
         this.faculty = faculty;
     }
 
+    public EducationProgramTO() {
+    }
+
     public int getId() {
         return id;
     }

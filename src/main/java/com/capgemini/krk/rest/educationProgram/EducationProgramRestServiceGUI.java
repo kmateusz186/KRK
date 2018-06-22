@@ -32,9 +32,14 @@ public class EducationProgramRestServiceGUI {
         educationProgramService.delete(id);
     }
 
-    @RequestMapping(value = "/education-programs", method = RequestMethod.PUT)
+    @RequestMapping(value = "/education-programs-up", method = RequestMethod.PUT)
     public void update(@RequestBody EducationProgramTO educationProgramTO) {
-        educationProgramService.updateEducationProgramPeriod(educationProgramTO);
+        educationProgramService.updateEducationProgram(educationProgramTO);
+    }
+
+    @RequestMapping(value = "/education-programs-in", method = RequestMethod.PUT)
+    public void insert(@RequestBody EducationProgramTO educationProgramTO) {
+        educationProgramService.insertEducationProgram(educationProgramTO);
     }
 
 }

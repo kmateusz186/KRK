@@ -14,6 +14,8 @@ public interface EducationProgramService {
 
     void delete(int id);
 
-    void updateEducationProgramPeriod(EducationProgramTO educationProgram);
+    void updateEducationProgram(EducationProgramTO educationProgram);
+
+    EducationProgramTO insertEducationProgram(EducationProgramTO educationProgram);
 
 }

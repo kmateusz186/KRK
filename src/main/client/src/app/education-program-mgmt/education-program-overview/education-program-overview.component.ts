@@ -26,14 +26,29 @@ export class EducationProgramOverviewComponent implements OnInit {
     courseEducationEffects: null,
   };
 
-  selectEducationProgram(educationProgram: EducationProgram) {
+  showEducationProgramDeleted: boolean;
+
+  selectAndDeleteEducationProgram(educationProgram: EducationProgram) {
     this.selectedEducationProgram = educationProgram;
+    this.deleteEducationProgram();
   }
 
   ngOnInit(): void {
     this.educationProgramService.findAll().subscribe(
       (educationPrograms) => {
         this.currentEducationPrograms = educationPrograms;
+      }
+    );
+  }
+
+  deleteEducationProgram(): void {
+    this.educationProgramService.deleteEducationProgram(this.selectedEducationProgram.id).subscribe(
+      success => {
+        this.showEducationProgramDeleted = true;
+        console.log('ok');
+      },
+      error => {
+        console.log('error' + this.selectedEducationProgram);
       }
     );
   }

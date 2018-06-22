@@ -11,6 +11,9 @@ public class FacultyTO {
         this.name = name;
     }
 
+    public FacultyTO() {
+    }
+
     public int getId() {
         return id;
     }

@@ -11,6 +11,9 @@ public class ModeTO {
         this.name = name;
     }
 
+    public ModeTO() {
+    }
+
     public int getId() {
         return id;
     }

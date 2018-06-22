@@ -11,6 +11,9 @@ public class EducationLevelTO {
         this.name = name;
     }
 
+    public EducationLevelTO() {
+    }
+
     public int getId() {
         return id;
     }

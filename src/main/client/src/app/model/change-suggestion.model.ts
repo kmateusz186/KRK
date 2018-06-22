@@ -1,12 +1,4 @@
 
-export interface ChangeSuggestion {
-  id: number;
-  evaluator: Evaluator;
-  educationProgram: EducationProgram;
-  proposition: string;
-  reason: string;
-}
-
 export interface EducationProgram {
   id: number;
   level: EducationLevel;
@@ -18,6 +10,14 @@ export interface EducationProgram {
   faculty: Faculty;
   changeSuggestions: ChangeSuggestion[];
   courseEducationEffects: CourseEducationEffect[];
+}
+
+export interface ChangeSuggestion {
+  id: number;
+  evaluator: Evaluator;
+  educationProgram: EducationProgram;
+  proposition: string;
+  reason: string;
 }
 
 export interface Evaluator {

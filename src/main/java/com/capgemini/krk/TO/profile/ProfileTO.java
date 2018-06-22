@@ -11,6 +11,9 @@ public class ProfileTO {
         this.name = name;
     }
 
+    public ProfileTO() {
+    }
+
     public int getId() {
         return id;
     }
