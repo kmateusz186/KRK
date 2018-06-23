@@ -1,0 +1,65 @@
+<section class="container-fluid">
+
+  <div class="alert alert-success" role="alert" *ngIf="showStudiesPlanChanged">Zmiana planu studiów</div>
+  <div class="alert alert-success" role="alert" *ngIf="showStudiesPlanAdded">Dodany plan studiów</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Plan studiów:</h3></div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-responsive">
+        <tr>
+          <td>Cykl kształcenia:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.period" (input)="studiesPlan.educationProgram.period = $event.target.value"></td>
+          <td>Tryb:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.mode.name" (input)="studiesPlan.educationProgram.mode.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Kierunek:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.course" (input)="studiesPlan.educationProgram.course = $event.target.value"></td>
+          <td>Wydział:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.faculty.name" (input)="studiesPlan.educationProgram.faculty.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Profil:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.profile.name" (input)="studiesPlan.educationProgram.profile.name = $event.target.value"></td>
+          <td>Specjalność:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.specialization" (input)="studiesPlan.educationProgram.specialization = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Poziom:</td>
+          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
+                     [value]="studiesPlan.educationProgram.level.name" (input)="studiesPlan.educationProgram.level.name = $event.target.value"></td>
+          <td><input [attr.disabled]="true" type="hidden" class="form-control" placeholder=""
+                    [value]="studiesPlan.educationProgram.id" (input)="studiesPlan.educationProgram.id = $event.target.value"></td>
+        </tr>
+      </table>
+      <br>
+        <div class="col-lg-6"><h4 class="panel-title">Semestry:</h4></div>
+        <table class="table table-striped books">
+          <thead>
+          <tr>
+            <th>Numer</th>
+            <th>&nbsp;</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let semester of studiesPlan.semesters">
+            <td>{{semester.number}}</td>
+            <td><button class="btn btn-success pull-right" >Moduły</button></td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+</section>

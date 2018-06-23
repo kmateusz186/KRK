@@ -8,6 +8,8 @@ import {ChangeSuggestionEfOverviewComponent} from './change-suggestion-mgmt/chan
 import {ChangeSuggestionEfDetailsComponent} from './change-suggestion-mgmt/change-suggestion-ef-details/change-suggestion-ef-details.component';
 import {EducationProgramDetailsComponent} from './education-program-mgmt/education-program-details/education-program-details.component';
 import {EducationProgramOverviewComponent} from './education-program-mgmt/education-program-overview/education-program-overview.component';
+import {StudiesPlanOverviewComponent} from './studies-plan-mgmt/studies-plan-overview/studies-plan-overview.component';
+import {StudiesPlanDetailsComponent} from './studies-plan-mgmt/studies-plan-details/studies-plan-details.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -66,6 +68,19 @@ export const APP_ROUTES: Routes = [
           {
             path: 'details/:id',
             component: EducationProgramDetailsComponent
+          }
+        ]
+      },
+      {
+        path: 'studies-plan',
+        children: [
+          {
+            path: 'overview/:id',
+            component: StudiesPlanOverviewComponent
+          },
+          {
+            path: 'details/:id',
+            component: StudiesPlanDetailsComponent
           }
         ]
       }

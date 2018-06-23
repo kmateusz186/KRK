@@ -1,0 +1,37 @@
+<section class="container-fluid">
+  <div class="alert alert-success" role="alert" *ngIf="showStudiesPlanDeleted">Usunięcie planu kształcenia</div>
+  <div class="alert alert-success" role="alert" *ngIf="showStudiesPlanAdded">Dodanie planu kształcenia</div>
+  <section [hidden]="thereAreStudiesPlansToDisplay()">
+    <p>Brak planów studiów.</p>
+  </section>
+  <section [hidden]="!thereAreStudiesPlansToDisplay()">
+    <div><h3 class="panel-title">Plany studiów:</h3></div>
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Cykl kształcenia</th>
+        <th>Kierunek</th>
+        <th>Poziom</th>
+        <th>Tryb</th>
+        <th>Wydział</th>
+        <th>Specjalność</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let studiesPlan of currentStudiesPlans">
+        <td>{{studiesPlan.educationProgram.period}}</td>
+        <td>{{studiesPlan.educationProgram.course}}</td>
+        <td>{{studiesPlan.educationProgram.level.name}}</td>
+        <td>{{studiesPlan.educationProgram.mode.name}}</td>
+        <td>{{studiesPlan.educationProgram.faculty.name}}</td>
+        <td>{{studiesPlan.educationProgram.specialization}}</td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/studies-plan/details', studiesPlan.id]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteStudiesPlan(studiesPlan)">Usuń</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <div>
+    <button class="btn btn-success pull-right" (click)="saveStudiesPlan()">Dodaj</button>
+  </div>
+</section>
