@@ -9,6 +9,7 @@ public class CoursesModuleTO {
 
     private int id;
     private ModuleTypeTO moduleType;
+    private CoursesModuleTO ovModule;
     //private List<CourseTO> courses;
     private List<SemesterTO> semesters;
 
@@ -19,9 +20,10 @@ public class CoursesModuleTO {
         this.semesters = semesters;
     } */
 
-    public CoursesModuleTO(int id, ModuleTypeTO moduleType, List<SemesterTO> semesters) {
+    public CoursesModuleTO(int id, ModuleTypeTO moduleType, CoursesModuleTO ovModule, List<SemesterTO> semesters) {
         this.id = id;
         this.moduleType = moduleType;
+        this.ovModule = ovModule;
         this.semesters = semesters;
     }
 
@@ -50,5 +52,13 @@ public class CoursesModuleTO {
 
     public void setSemesters(List<SemesterTO> semesters) {
         this.semesters = semesters;
+    }
+
+    public CoursesModuleTO getOvModule() {
+        return ovModule;
+    }
+
+    public void setOvModule(CoursesModuleTO ovModule) {
+        this.ovModule = ovModule;
     }
 }

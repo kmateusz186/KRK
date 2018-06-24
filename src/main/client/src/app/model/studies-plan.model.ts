@@ -15,6 +15,7 @@ export interface Semester {
 export interface CoursesModule {
   id: number;
   moduleType: ModuleType;
+  ovModule: CoursesModule;
   semesters: Semester[];
   studiesPlans: StudiesPlan[];
 }

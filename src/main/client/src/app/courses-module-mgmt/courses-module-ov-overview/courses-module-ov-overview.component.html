@@ -1,0 +1,28 @@
+<section class="container-fluid">
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesModuleDeleted">Usunięcie modułu</div>
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesModuleAdded">Dodanie modułu</div>
+  <div class="alert alert-danger" role="alert" *ngIf="showCoursesModuleOv">Brak modułów podrzędnych</div>
+  <section [hidden]="thereAreCoursesModulesToDisplay()">
+    <p>Brak modułów kursów.</p>
+  </section>
+  <section [hidden]="!thereAreCoursesModulesToDisplay()">
+    <div><h3 class="panel-title">Moduły kursów:</h3></div>
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Rodzaj</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let coursesModule of currentCoursesModules">
+        <td>{{coursesModule.moduleType.name}} (Nadrzędny: {{coursesModule.ovModule.moduleType.name}})</td>
+        <td><button class="btn btn-success pull-right" (click)="goToCoursesModulesOv(coursesModule)">Moduły</button> <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module-ov/details', coursesModule.id]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteCoursesModule(coursesModule)">Usuń</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <div>
+    <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module-ov/details', 0]">Dodaj</button>
+  </div>
+</section>

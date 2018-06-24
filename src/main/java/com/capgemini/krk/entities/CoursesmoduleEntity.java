@@ -9,6 +9,7 @@ import java.util.Objects;
 public class CoursesmoduleEntity {
     private int id;
     private ModuletypeEntity moduleType;
+    private CoursesmoduleEntity ovModule;
     private List<CourseEntity> courses;
     private List<SemesterEntity> semesters;
 
@@ -45,6 +46,16 @@ public class CoursesmoduleEntity {
 
     public void setModuleType(ModuletypeEntity moduleType) {
         this.moduleType = moduleType;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "ov_module", referencedColumnName = "ID")
+    public CoursesmoduleEntity getOvModule() {
+        return ovModule;
+    }
+
+    public void setOvModule(CoursesmoduleEntity ovModule) {
+        this.ovModule = ovModule;
     }
 
     @ManyToMany

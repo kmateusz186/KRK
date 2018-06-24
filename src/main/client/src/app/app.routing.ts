@@ -10,6 +10,10 @@ import {EducationProgramDetailsComponent} from './education-program-mgmt/educati
 import {EducationProgramOverviewComponent} from './education-program-mgmt/education-program-overview/education-program-overview.component';
 import {StudiesPlanOverviewComponent} from './studies-plan-mgmt/studies-plan-overview/studies-plan-overview.component';
 import {StudiesPlanDetailsComponent} from './studies-plan-mgmt/studies-plan-details/studies-plan-details.component';
+import {CoursesModuleOverviewComponent} from './courses-module-mgmt/courses-module-overview/courses-module-overview.component';
+import {CoursesModuleDetailsComponent} from './courses-module-mgmt/courses-module-details/courses-module-details.component';
+import {CoursesModuleOvOverviewComponent} from './courses-module-mgmt/courses-module-ov-overview/courses-module-ov-overview.component';
+import {CoursesModuleOvDetailsComponent} from './courses-module-mgmt/courses-module-ov-details/courses-module-ov-details.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -81,6 +85,32 @@ export const APP_ROUTES: Routes = [
           {
             path: 'details/:id',
             component: StudiesPlanDetailsComponent
+          }
+        ]
+      },
+      {
+        path: 'courses-module',
+        children: [
+          {
+            path: 'overview/:id',
+            component: CoursesModuleOverviewComponent
+          },
+          {
+            path: 'details/:id',
+            component: CoursesModuleDetailsComponent
+          }
+        ]
+      },
+      {
+        path: 'courses-module-ov',
+        children: [
+          {
+            path: 'overview/:id',
+            component: CoursesModuleOvOverviewComponent
+          },
+          {
+            path: 'details/:id',
+            component: CoursesModuleOvDetailsComponent
           }
         ]
       }

@@ -55,7 +55,7 @@
           <tbody>
           <tr *ngFor="let semester of studiesPlan.semesters">
             <td>{{semester.number}}</td>
-            <td><button class="btn btn-success pull-right" >Moduły</button></td>
+            <td><button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/overview', semester.id]">Moduły</button></td>
           </tr>
           </tbody>
         </table>

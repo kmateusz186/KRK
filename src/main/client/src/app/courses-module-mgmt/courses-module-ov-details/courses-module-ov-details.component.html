@@ -1,0 +1,31 @@
+<section class="container-fluid">
+
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesModuleChanged">Zmiana modułu kursów</div>
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesModuleAdded">Dodany moduł kursów</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Moduł kursów:</h3></div>
+        <div class="col-lg-6">
+          <button class="btn btn-success pull-right" (click)="saveCoursesModule()">Zapisz</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-responsive">
+        <tr>
+          <td>Moduł nadrzędny:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="selectedCoursesModule.ovModule.moduleType.name" (input)="selectedCoursesModule.ovModule.moduleType.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Rodzaj:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="selectedCoursesModule.moduleType.name" (input)="selectedCoursesModule.moduleType.name = $event.target.value"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>
