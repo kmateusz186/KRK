@@ -18,7 +18,7 @@
         <td>{{changeSuggestion.id}}</td>
         <td>{{changeSuggestion.educationProgram.course}}, {{changeSuggestion.educationProgram.period}}</td>
         <td>{{changeSuggestion.proposition}}</td>
-        <td><a [routerLink]="['/app/change-suggestion-ef/details', changeSuggestion.id]">Szczegóły</a> <a [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Inicjacja</a></td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/change-suggestion-ef/details', changeSuggestion.id]">Szczegóły</button> <button class="btn btn-success pull-right" [routerLink]="['/app/change-suggestion', changeSuggestion.id]">Inicjacja</button></td>
       </tr>
       </tbody>
     </table>
