@@ -29,7 +29,7 @@ export class CourseOverviewComponent implements OnInit {
     courseForm: {id: null, name: null},
     kind: {id: null, name: null},
     passingWay: {id: null, name: null},
-    subject: {id: null, namePL: null, nameENG: null, code: null, prerequisites: null, courseEducationEffects: [], subjectCards: []},
+    subject: {id: null, namePL: null, nameEng: null, code: null, prerequisites: null, courseEducationEffects: [], subjectCards: []},
   };
 
   showCourseDeleted: boolean;

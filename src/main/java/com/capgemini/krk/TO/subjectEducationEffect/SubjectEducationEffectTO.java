@@ -1,6 +1,9 @@
 package com.capgemini.krk.TO.subjectEducationEffect;
 
+import com.capgemini.krk.TO.courseEducationEffect.CourseEducationEffectTO;
 import com.capgemini.krk.TO.eeCategory.EECategoryTO;
+
+import java.util.List;
 
 public class SubjectEducationEffectTO {
 
@@ -8,12 +11,22 @@ public class SubjectEducationEffectTO {
     private String symbol;
     private String educationEffect;
     private EECategoryTO eeCategory;
+    private List<CourseEducationEffectTO> courseEducationEffects;
 
-    public SubjectEducationEffectTO(int id, String symbol, String educationEffect, EECategoryTO eeCategory) {
+    public SubjectEducationEffectTO(int id, String symbol, String educationEffect, EECategoryTO eeCategory, List<CourseEducationEffectTO> courseEducationEffects) {
         this.id = id;
         this.symbol = symbol;
         this.educationEffect = educationEffect;
         this.eeCategory = eeCategory;
+        this.courseEducationEffects = courseEducationEffects;
+    }
+
+    public SubjectEducationEffectTO() {
+    }
+
+    public SubjectEducationEffectTO(int id, String symbol) {
+        this.id = id;
+        this.symbol = symbol;
     }
 
     public int getId() {
@@ -46,5 +59,13 @@ public class SubjectEducationEffectTO {
 
     public void setEeCategory(EECategoryTO eeCategory) {
         this.eeCategory = eeCategory;
+    }
+
+    public List<CourseEducationEffectTO> getCourseEducationEffects() {
+        return courseEducationEffects;
+    }
+
+    public void setCourseEducationEffects(List<CourseEducationEffectTO> courseEducationEffects) {
+        this.courseEducationEffects = courseEducationEffects;
     }
 }

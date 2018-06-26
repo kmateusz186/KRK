@@ -4,7 +4,7 @@
     <p>Brak programów kształcenia.</p>
   </section>
   <section [hidden]="!thereAreEducationProgramsToDisplay()">
-    <div><h3 class="panel-title">Przegląd programów kształcenia:</h3></div>
+    <div><h3 class="panel-title">Edycja programów kształcenia:</h3></div>
     <table class="table table-striped books">
       <thead>
       <tr>
@@ -25,9 +25,12 @@
         <td>{{educationProgram.mode.name}}</td>
         <td>{{educationProgram.faculty.name}}</td>
         <td>{{educationProgram.specialization}}</td>
-        <td><button class="btn btn-success pull-right" [routerLink]="['/app/studies-plan/overview', educationProgram.id]">Plan</button> <button class="btn btn-success pull-right" [routerLink]="['/app/education-program/details', educationProgram.id]">Program</button> <button class="btn btn-success pull-right" [routerLink]="['/app/education-effect/overview', educationProgram.id]">Efekty kształcenia</button></td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/studies-plan-edit/overview', educationProgram.id]">Plan</button> <button class="btn btn-success pull-right" [routerLink]="['/app/education-program/details', educationProgram.id]">Program</button> <button class="btn btn-success pull-right" [routerLink]="['/app/education-program-edit/details', educationProgram.id]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteEducationProgram(educationProgram)">Usuń</button></td>
       </tr>
       </tbody>
     </table>
   </section>
+  <div>
+    <button class="btn btn-success pull-right" [routerLink]="['/app/education-program-edit/details', 0]">Dodaj</button>
+  </div>
 </section>

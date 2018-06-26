@@ -16,10 +16,12 @@ export class CoursesModuleDetailsComponent implements OnInit {
   selectedCoursesModule: CoursesModule = {
     id: null,
     moduleType: {id: null, name: null},
-    ovModule: {id: null, moduleType: {id: null, name: null}, ovModule: null, semesters: [], studiesPlans: []},
+    ovModule: {id: null, moduleType: {id: null, name: null}, ovModule: null, courses: [], semesters: [], ovModules: [], studiesPlans: []},
+    courses: [],
     semesters: [],
+    ovModules: [],
     studiesPlans: [],
-  }
+  };
 
   updateMode: boolean;
   showCoursesModuleChanged: boolean;

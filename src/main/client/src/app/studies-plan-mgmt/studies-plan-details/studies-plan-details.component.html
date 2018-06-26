@@ -13,53 +13,79 @@
       <table class="table table-responsive">
         <tr>
           <td>Cykl kształcenia:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.period" (input)="studiesPlan.educationProgram.period = $event.target.value"></td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.period}}</div></td>
+          <td>Profil:</td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.profile.name}}</div></td>
+        </tr>
+        <tr>
           <td>Tryb:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.mode.name" (input)="studiesPlan.educationProgram.mode.name = $event.target.value"></td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.mode.name}}</div></td>
+          <td>Specjalność:</td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.specialization}}</div></td>
         </tr>
         <tr>
           <td>Kierunek:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.course" (input)="studiesPlan.educationProgram.course = $event.target.value"></td>
-          <td>Wydział:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.faculty.name" (input)="studiesPlan.educationProgram.faculty.name = $event.target.value"></td>
-        </tr>
-        <tr>
-          <td>Profil:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.profile.name" (input)="studiesPlan.educationProgram.profile.name = $event.target.value"></td>
-          <td>Specjalność:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.specialization" (input)="studiesPlan.educationProgram.specialization = $event.target.value"></td>
-        </tr>
-        <tr>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.course}}</div></td>
           <td>Poziom:</td>
-          <td><input [attr.disabled]="true" type="text" class="form-control" placeholder=""
-                     [value]="studiesPlan.educationProgram.level.name" (input)="studiesPlan.educationProgram.level.name = $event.target.value"></td>
-          <td><input [attr.disabled]="true" type="hidden" class="form-control" placeholder=""
-                    [value]="studiesPlan.educationProgram.id" (input)="studiesPlan.educationProgram.id = $event.target.value"></td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.level.name}}</div></td>
+        </tr>
+        <tr>
+          <td>Wydział:</td>
+          <td><div class="form-control gray-bg">{{studiesPlan.educationProgram.faculty.name}}</div></td>
         </tr>
       </table>
       <br>
         <div class="col-lg-6"><h4 class="panel-title">Semestry:</h4></div>
         <table class="table table-striped books">
           <thead>
-          <tr>
-            <th>Numer</th>
-            <th>&nbsp;</th>
-          </tr>
           </thead>
           <tbody>
           <tr *ngFor="let semester of studiesPlan.semesters">
-            <td>{{semester.number}}</td>
-            <td><button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/overview', semester.id]">Moduły</button></td>
+            <td>
+              <div class="col-lg-6"><h4 class="panel-title">{{semester.number}}</h4></div>
+              <table class="table table-striped books">
+                <thead>
+                </thead>
+                <tbody>
+                <tr *ngFor="let coursesModule of semester.coursesModules">
+                  <td>
+                    <div class="col-lg-6"><h4 class="panel-title">{{coursesModule.moduleType.name}}</h4></div>
+                    <table class="table table-striped books">
+                      <thead>
+                      <tr>
+                        <th>Kod</th>
+                        <th>Nazwa</th>
+                        <th>KEK</th>
+                        <th>ECTS</th>
+                        <th>Forma kursu</th>
+                        <th>Sposób zaliczenia</th>
+                        <th>Rodzaj</th>
+                        <th>Typ</th>
+                        <th>Karta przedmiotu</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let course of coursesModule.courses">
+                        <td>{{course.code}}</td>
+                        <td>{{course.name}}</td>
+                        <td *ngFor="let effect of course.subject.courseEducationEffects">{{effect.symbol}}</td>
+                        <td>{{course.ects}}</td>
+                        <td>{{course.courseForm.name}}</td>
+                        <td>{{course.passingWay.name}}</td>
+                        <td>{{course.kind.name}}</td>
+                        <td>{{course.courseType.name}}</td>
+                        <td><button class="btn btn-success pull-right" [routerLink]="['/app/subject-card/overview', course.id]">Karta przedmiotu</button></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
           </tr>
           </tbody>
         </table>
     </div>
   </div>
-
 </section>

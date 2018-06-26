@@ -1,3 +1,4 @@
+import {Course} from './course.model';
 
 export interface StudiesPlan {
   id: number;
@@ -16,7 +17,9 @@ export interface CoursesModule {
   id: number;
   moduleType: ModuleType;
   ovModule: CoursesModule;
+  courses: Course[];
   semesters: Semester[];
+  ovModules: CoursesModule[];
   studiesPlans: StudiesPlan[];
 }
 export interface ModuleType {

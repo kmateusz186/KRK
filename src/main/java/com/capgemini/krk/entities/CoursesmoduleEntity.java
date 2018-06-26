@@ -12,6 +12,7 @@ public class CoursesmoduleEntity {
     private CoursesmoduleEntity ovModule;
     private List<CourseEntity> courses;
     private List<SemesterEntity> semesters;
+    private List<CoursesmoduleEntity> ovModules;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -48,6 +49,7 @@ public class CoursesmoduleEntity {
         this.moduleType = moduleType;
     }
 
+    @ManyToOne
     @OneToOne
     @JoinColumn(name = "ov_module", referencedColumnName = "ID")
     public CoursesmoduleEntity getOvModule() {
@@ -75,5 +77,14 @@ public class CoursesmoduleEntity {
 
     public void setSemesters(List<SemesterEntity> semesters) {
         this.semesters = semesters;
+    }
+
+    @OneToMany(mappedBy = "ovModule")
+    public List<CoursesmoduleEntity> getOvModules() {
+        return ovModules;
+    }
+
+    public void setOvModules(List<CoursesmoduleEntity> ovModules) {
+        this.ovModules = ovModules;
     }
 }

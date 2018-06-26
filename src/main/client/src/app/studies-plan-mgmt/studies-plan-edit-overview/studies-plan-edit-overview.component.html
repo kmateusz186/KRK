@@ -26,9 +26,12 @@
         <td>{{studiesPlan.educationProgram.mode.name}}</td>
         <td>{{studiesPlan.educationProgram.faculty.name}}</td>
         <td>{{studiesPlan.educationProgram.specialization}}</td>
-        <td><button class="btn btn-success pull-right" [routerLink]="['/app/studies-plan/details', studiesPlan.id]">Wyświetl</button></td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/studies-plan-edit/details', studiesPlan.id]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteStudiesPlan(studiesPlan)">Usuń</button></td>
       </tr>
       </tbody>
     </table>
   </section>
+  <div>
+    <button class="btn btn-success pull-right" (click)="saveStudiesPlan()">Dodaj</button>
+  </div>
 </section>

@@ -1,10 +1,13 @@
 package com.capgemini.krk.mappers;
 
+import com.capgemini.krk.TO.course.CourseTO;
+import com.capgemini.krk.TO.course.CoursesTO;
 import com.capgemini.krk.TO.courseModule.CoursesModuleTO;
 import com.capgemini.krk.TO.educationLevel.EducationLevelTO;
 import com.capgemini.krk.TO.educationProgram.EducationProgramTO;
 import com.capgemini.krk.TO.faculty.FacultyTO;
 import com.capgemini.krk.TO.mode.ModeTO;
+import com.capgemini.krk.TO.moduleType.ModuleTypeTO;
 import com.capgemini.krk.TO.profile.ProfileTO;
 import com.capgemini.krk.TO.semester.SemesterTO;
 import com.capgemini.krk.TO.studiesPlan.StudiesPlanTO;
@@ -84,6 +87,41 @@ public class StudiesPlanMapper {
             for(CoursesmoduleEntity coursesmoduleEntity : semesterEntity.getCoursesModules()) {
                 CoursesModuleTO coursesModuleTMP = new CoursesModuleTO();
                 coursesModuleTMP.setId(coursesmoduleEntity.getId());
+                ModuleTypeTO moduleTypeTO = new ModuleTypeTO(coursesmoduleEntity.getModuleType().getId(), coursesmoduleEntity.getModuleType().getName());
+                coursesModuleTMP.setModuleType(moduleTypeTO);
+                List<CoursesModuleTO> coursesOvModulesTO = new ArrayList<>();
+                for (CoursesmoduleEntity coursesovmoduleEntity : coursesmoduleEntity.getOvModules()) {
+                    CoursesModuleTO coursesModuleTMPTMP = new CoursesModuleTO();
+                    coursesModuleTMPTMP.setId(coursesovmoduleEntity.getId());
+                    ModuleTypeTO moduleOvTypeTO = new ModuleTypeTO(coursesovmoduleEntity.getModuleType().getId(), coursesovmoduleEntity.getModuleType().getName());
+                    coursesModuleTMPTMP.setModuleType(moduleOvTypeTO);
+                    List<CoursesModuleTO> coursesOvOvModulesTO = new ArrayList<>();
+                    for (CoursesmoduleEntity coursesovovmoduleEntity : coursesmoduleEntity.getOvModules()) {
+                        CoursesModuleTO coursesModuleTMPTMPTMP = new CoursesModuleTO();
+                        coursesModuleTMPTMPTMP.setId(coursesovovmoduleEntity.getId());
+                        ModuleTypeTO moduleOvOvTypeTO = new ModuleTypeTO(coursesovovmoduleEntity.getModuleType().getId(), coursesovovmoduleEntity.getModuleType().getName());
+                        coursesModuleTMPTMPTMP.setModuleType(moduleOvOvTypeTO);
+                        List<CourseTO> coursesOvOvTO = new ArrayList<>();
+                        for (CourseEntity courseOvOvEntity : coursesovovmoduleEntity.getCourses()) {
+                            coursesOvOvTO.add(CourseMapper.mapToTO(courseOvOvEntity));
+                        }
+                        coursesModuleTMPTMPTMP.setCourses(coursesOvOvTO);
+                        coursesOvOvModulesTO.add(coursesModuleTMPTMPTMP);
+                    }
+                    coursesModuleTMPTMP.setOvModules(coursesOvOvModulesTO);
+                    List<CourseTO> coursesOvTO = new ArrayList<>();
+                    for (CourseEntity courseOvEntity : coursesovmoduleEntity.getCourses()) {
+                        coursesOvTO.add(CourseMapper.mapToTO(courseOvEntity));
+                    }
+                    coursesModuleTMPTMP.setCourses(coursesOvTO);
+                    coursesOvModulesTO.add(coursesModuleTMPTMP);
+                }
+                coursesModuleTMP.setOvModules(coursesOvModulesTO);
+                List<CourseTO> coursesTO = new ArrayList<>();
+                for (CourseEntity courseEntity : coursesmoduleEntity.getCourses()) {
+                    coursesTO.add(CourseMapper.mapToTO(courseEntity));
+                }
+                coursesModuleTMP.setCourses(coursesTO);
                 coursesModules.add(coursesModuleTMP);
             }
             semesterTMP.setCoursesModules(coursesModules);

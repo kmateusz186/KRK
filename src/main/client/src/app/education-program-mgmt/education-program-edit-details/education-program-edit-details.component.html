@@ -1,0 +1,56 @@
+<section class="container-fluid">
+
+  <div class="alert alert-success" role="alert" *ngIf="showEducationProgramChanged">Zmiana programu kształcenia</div>
+  <div class="alert alert-success" role="alert" *ngIf="showEducationProgramAdded">Dodany program kształcenia</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Program kształcenia:</h3></div>
+        <div class="col-lg-6">
+          <button class="btn btn-success pull-right" (click)="saveEducationProgram()">Zapisz</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-responsive">
+        <tr>
+          <td>Cykl kształcenia:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.period" (input)="educationProgram.period = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Kierunek:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.course" (input)="educationProgram.course = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Profil:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.profile.name" (input)="educationProgram.profile.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Poziom:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.level.name" (input)="educationProgram.level.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Tryb:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.mode.name" (input)="educationProgram.mode.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Wydział:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.faculty.name" (input)="educationProgram.faculty.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Specjalność:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="educationProgram.specialization" (input)="educationProgram.specialization = $event.target.value"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>

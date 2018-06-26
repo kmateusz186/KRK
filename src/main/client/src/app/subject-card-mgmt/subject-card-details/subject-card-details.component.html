@@ -1,0 +1,120 @@
+<section class="container-fluid">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Karta przedmiotu:</h3></div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <tr>
+          <td>Nazwa (PL):</td>
+          <td><div class="form-control gray-bg">{{subjectCard.subject.namePL}}</div></td>
+        </tr>
+        <tr>
+          <td>Nazwa (ENG):</td>
+          <td><div class="form-control gray-bg">{{subjectCard.subject.nameEng}}</div></td>
+        </tr>
+        <tr>
+          <td>Kod przedmiotu:</td>
+          <td><div class="form-control gray-bg">{{subjectCard.subject.code}}</div></td>
+        </tr>
+        <tr>
+          <td>Wymagania wstępne w zakresie wiedzy, umiejętności i innych kompetencji</td>
+          <td><div class="form-control gray-bg">{{subjectCard.subject.prerequisites}}<br>&nbsp;<br></div></td>
+        </tr>
+      </table>
+      <br>
+        <div class="col-lg-6"><h4 class="panel-title">Cele przedmiotu:</h4></div>
+        <table class="table table-striped books ">
+          <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Cel</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let purpose of subjectCard.subjectPurposes">
+            <td>{{purpose.symbol}}</td>
+            <td>{{purpose.purpose}}</td>
+          </tr>
+          </tbody>
+        </table>
+      <br>
+      <div class="col-lg-6"><h4 class="panel-title">Przedmiotowe efekty kształcenia:</h4></div>
+      <table class="table table-striped books ">
+        <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Efekty kształcenia</th>
+          <th>Kategoria</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let effect of subjectCard.subjectEducationEffects">
+          <td>{{effect.symbol}}</td>
+          <td>{{effect.educationEffect}}</td>
+          <td>{{effect.eeCategory.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="col-lg-6"><h4 class="panel-title">Treści programowe:</h4></div>
+      <table class="table table-striped books ">
+        <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Treść</th>
+          <th>Liczba godzin</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let content of subjectCard.programContents">
+          <td>{{content.symbol}}</td>
+          <td>{{content.content}}</td>
+          <td>{{content.hours}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="col-lg-6"><h4 class="panel-title">Stosowane narzędzia dydaktyczne:</h4></div>
+      <table class="table table-striped books ">
+        <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Narzędzie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let tool of subjectCard.teachingTools">
+          <td>{{tool.symbol}}</td>
+          <td>{{tool.tool}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+      <table class="table">
+        <tr>
+          <td><h4 class="panel-title">Opiekunowie przedmiotu:</h4></td>
+          <td *ngFor="let keeper of subjectCard.subjectKeepers"><div class="form-control gray-bg"><h4 class="panel-title">{{keeper.name}} {{keeper.surname}}</h4></div></td>
+        </tr>
+      </table>
+      <div class="col-lg-6"><h4 class="panel-title">Macierz powiązania efektów kształcenia dla przedmiotu:</h4></div>
+      <table class="table table-striped books ">
+        <thead>
+        <tr>
+          <th>PEK</th>
+          <th>KEK/SEK</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let subjectEffect of subjectCard.subjectEducationEffects">
+          <td>{{subjectEffect.symbol}}</td>
+          <td *ngFor="let courseEffect of subjectEffect.courseEducationEffects">{{courseEffect.symbol}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

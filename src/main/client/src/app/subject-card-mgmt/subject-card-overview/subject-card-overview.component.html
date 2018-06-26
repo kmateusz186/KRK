@@ -1,0 +1,26 @@
+<section class="container-fluid">
+  <section [hidden]="thereAreSubjectCardsToDisplay()">
+    <p>Brak kursów.</p>
+  </section>
+  <section [hidden]="!thereAreSubjectCardsToDisplay()">
+    <div><h3 class="panel-title">Karty przedmiotu:</h3></div>
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Plik</th>
+        <th>Przedmiot</th>
+        <th>Efekty</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let subjectCard of currentSubjectcards">
+        <td>{{subjectCard.link}}</td>
+        <td>{{subjectCard.subject.namePL}}</td>
+        <td *ngFor="let effect of subjectCard.subjectEducationEffects">{{effect.symbol}}</td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/subject-card/details', subjectCard.id]">Wyświetl</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

@@ -49,7 +49,7 @@ export interface PassingWay {
 export interface Subject {
   id: number;
   namePL: string;
-  nameENG: string;
+  nameEng: string;
   code: string;
   prerequisites: string;
   courseEducationEffects: CourseEducationEffect[];
@@ -113,7 +113,7 @@ export interface SubjectEducationEffect {
   symbol: string;
   educationEffect: string;
   courseEducationEffects: CourseEducationEffect[];
-  category: EECategory;
+  eeCategory: EECategory;
   subjectCards: SubjectCard[];
 }
 

@@ -6,8 +6,6 @@ import {AppComponent} from './app.component';
 import {GeneralModule} from './general/general.module';
 import {RouterModule} from '@angular/router';
 import {APP_ROUTES} from './app.routing';
-import {BookService} from './book-mgmt/book.service';
-import {BookMgmtModule} from './book-mgmt/book-mgmt.module';
 import {ChangeSuggestionMgmtModule} from './change-suggestion-mgmt/change-suggestion-mgmt.module';
 import {ChangeSuggestionService} from './change-suggestion-mgmt/change-suggestion.service';
 import {EducationProgramMgmtModule} from './education-program-mgmt/education-program-mgmt.module';
@@ -18,6 +16,8 @@ import {CoursesModuleMgmtModule} from './courses-module-mgmt/courses-module-mgmt
 import {CoursesModuleService} from './courses-module-mgmt/courses-module.service';
 import {CourseMgmtModule} from './course-mgmt/course-mgmt.module';
 import {CourseService} from './course-mgmt/course.service';
+import {SubjectCardService} from './subject-card-mgmt/subject-card.service';
+import {SubjectCardMgmtModule} from './subject-card-mgmt/subject-card-mgmt.module';
 
 @NgModule({
   declarations: [
@@ -29,15 +29,14 @@ import {CourseService} from './course-mgmt/course.service';
     HttpModule,
     RouterModule.forRoot(APP_ROUTES),
     GeneralModule,
-    BookMgmtModule,
-    GeneralModule,
     ChangeSuggestionMgmtModule,
     EducationProgramMgmtModule,
     StudiesPlanMgmtModule,
     CoursesModuleMgmtModule,
-    CourseMgmtModule
+    CourseMgmtModule,
+    SubjectCardMgmtModule
   ],
-  providers: [BookService, ChangeSuggestionService, EducationProgramService, StudiesPlanService, CoursesModuleService, CourseService],
+  providers: [ChangeSuggestionService, EducationProgramService, StudiesPlanService, CoursesModuleService, CourseService, SubjectCardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

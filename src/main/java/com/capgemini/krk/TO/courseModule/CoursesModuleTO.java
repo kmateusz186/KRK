@@ -1,5 +1,6 @@
 package com.capgemini.krk.TO.courseModule;
 
+import com.capgemini.krk.TO.course.CourseTO;
 import com.capgemini.krk.TO.moduleType.ModuleTypeTO;
 import com.capgemini.krk.TO.semester.SemesterTO;
 
@@ -10,21 +11,17 @@ public class CoursesModuleTO {
     private int id;
     private ModuleTypeTO moduleType;
     private CoursesModuleTO ovModule;
-    //private List<CourseTO> courses;
+    private List<CourseTO> courses;
     private List<SemesterTO> semesters;
+    private List<CoursesModuleTO> ovModules;
 
-   /* public CoursesModuleTO(int id, ModuleTypeTO moduleType, List<CourseTO> courses, List<SemesterTO> semesters) {
-        this.id = id;
-        this.moduleType = moduleType;
-        this.courses = courses;
-        this.semesters = semesters;
-    } */
-
-    public CoursesModuleTO(int id, ModuleTypeTO moduleType, CoursesModuleTO ovModule, List<SemesterTO> semesters) {
+    public CoursesModuleTO(int id, ModuleTypeTO moduleType, CoursesModuleTO ovModule, List<CourseTO> courses, List<SemesterTO> semesters, List<CoursesModuleTO> ovModules) {
         this.id = id;
         this.moduleType = moduleType;
         this.ovModule = ovModule;
+        this.courses = courses;
         this.semesters = semesters;
+        this.ovModules = ovModules;
     }
 
     public CoursesModuleTO() {
@@ -60,5 +57,21 @@ public class CoursesModuleTO {
 
     public void setOvModule(CoursesModuleTO ovModule) {
         this.ovModule = ovModule;
+    }
+
+    public List<CourseTO> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<CourseTO> courses) {
+        this.courses = courses;
+    }
+
+    public List<CoursesModuleTO> getOvModules() {
+        return ovModules;
+    }
+
+    public void setOvModules(List<CoursesModuleTO> ovModules) {
+        this.ovModules = ovModules;
     }
 }

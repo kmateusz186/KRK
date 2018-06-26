@@ -37,9 +37,9 @@ public class CoursesModuleMapper {
         CoursesModuleTO coursesModuleTOOv = null;
         if(coursesmoduleEntity.getOvModule() != null) {
             ModuleTypeTO moduleTypeTOOv = new ModuleTypeTO(coursesmoduleEntity.getOvModule().getModuleType().getId(), coursesmoduleEntity.getOvModule().getModuleType().getName());
-            coursesModuleTOOv = new CoursesModuleTO(coursesmoduleEntity.getOvModule().getId(), moduleTypeTOOv, null, null);
+            coursesModuleTOOv = new CoursesModuleTO(coursesmoduleEntity.getOvModule().getId(), moduleTypeTOOv, null, null, null, null);
         }
-        CoursesModuleTO coursesModuleTO = new CoursesModuleTO(id, moduleTypeTO, coursesModuleTOOv, null);
+        CoursesModuleTO coursesModuleTO = new CoursesModuleTO(id, moduleTypeTO, coursesModuleTOOv, null, null, null);
         return coursesModuleTO;
     }
 }

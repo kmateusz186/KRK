@@ -5,18 +5,18 @@ import {Semester, StudiesPlan} from '../../model/studies-plan.model';
 
 
 @Component({
-  selector: 'app-studies-plan-details',
-  templateUrl: './studies-plan-details.component.html',
-  styleUrls: ['./studies-plan-details.component.scss']
+  selector: 'app-studies-plan-edit-details',
+  templateUrl: './studies-plan-edit-details.component.html',
+  styleUrls: ['./studies-plan-edit-details.component.scss']
 })
-export class StudiesPlanDetailsComponent implements OnInit {
+export class StudiesPlanEditDetailsComponent implements OnInit {
 
   selectedSemester: Semester = {
     id: null,
     number: null,
     studiesPlan: null,
     coursesModules: []
-  };
+  }
 
   studiesPlan: StudiesPlan = {
     id: null,

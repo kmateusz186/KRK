@@ -148,7 +148,7 @@ public class CourseMapper {
                 subjectCardsTO.add(subjectCardTO);
             }
         }
-        SubjectTO subjectTO = new SubjectTO(courseEducationEffectsTO, subjectCardsTO);
+        SubjectTO subjectTO = new SubjectTO(course.getSubject().getNamePl(),courseEducationEffectsTO, subjectCardsTO);
         CourseTO courseTO = new CourseTO(id, name, ects, technical, code, zzuHours, classesTypeTO, courseTypeTO, coursesGroupTO, courseFormTO, kindTO, passingWayTO, subjectTO);
         return courseTO;
     }

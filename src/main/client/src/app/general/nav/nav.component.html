@@ -8,9 +8,6 @@
     <div class="col-lg-9">
       <ul>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link nav-text" routerLink="/app/book/overview">Books</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
           <div class="dropdown">
             <button class="dropbtn">Sugestie zmian
               <i class="fa fa-caret-down"></i>
@@ -22,7 +19,15 @@
           </div>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link nav-text" routerLink="/app/education-program/overview">Programy kształcenia</a>
+          <div class="dropdown">
+            <button class="dropbtn">Programy kształcenia
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a class="nav-link nav-text" routerLink="/app/education-program-edit/overview">Edycja</a>
+              <a class="nav-link nav-text" routerLink="/app/education-program/overview">Przegląd</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

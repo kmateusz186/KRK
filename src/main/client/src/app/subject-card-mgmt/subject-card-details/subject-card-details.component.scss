@@ -1,0 +1,12 @@
+:host {
+  .row {
+    margin-top: 20px;
+  }
+  .form-label {
+    text-align: right;
+  }
+
+  input[type=checkbox] {
+    transform: scale(1.5);
+  }
+}

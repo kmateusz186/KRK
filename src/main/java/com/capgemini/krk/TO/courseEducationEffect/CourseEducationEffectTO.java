@@ -4,6 +4,9 @@ import com.capgemini.krk.TO.areaOfKnowledge.AreaOfKnowledgeTO;
 import com.capgemini.krk.TO.educationProgram.EducationProgramTO;
 import com.capgemini.krk.TO.eeCategory.EECategoryTO;
 import com.capgemini.krk.TO.scienceArea.ScienceAreaTO;
+import com.capgemini.krk.TO.subjectEducationEffect.SubjectEducationEffectTO;
+
+import java.util.List;
 
 public class CourseEducationEffectTO {
 
@@ -15,6 +18,7 @@ public class CourseEducationEffectTO {
     private EECategoryTO category;
     private ScienceAreaTO scienceArea;
     private EducationProgramTO educationProgram;
+    private List<SubjectEducationEffectTO> subjectEducationEffects;
 
     public CourseEducationEffectTO(int id, String symbol, String educationEffect, String componentCode, AreaOfKnowledgeTO areaOfKnowledge, EECategoryTO category, ScienceAreaTO scienceArea, EducationProgramTO educationProgram) {
         this.id = id;
@@ -37,6 +41,17 @@ public class CourseEducationEffectTO {
         this.scienceArea = scienceArea;
     }
 
+    public CourseEducationEffectTO(int id, String symbol, String educationEffect, String componentCode, AreaOfKnowledgeTO areaOfKnowledge, EECategoryTO category, ScienceAreaTO scienceArea, EducationProgramTO educationProgram, List<SubjectEducationEffectTO> subjectEducationEffects) {
+        this.id = id;
+        this.symbol = symbol;
+        this.educationEffect = educationEffect;
+        this.componentCode = componentCode;
+        this.areaOfKnowledge = areaOfKnowledge;
+        this.category = category;
+        this.scienceArea = scienceArea;
+        this.educationProgram = educationProgram;
+        this.subjectEducationEffects = subjectEducationEffects;
+    }
 
     public CourseEducationEffectTO(String symbol) {
         this.symbol = symbol;
@@ -45,6 +60,11 @@ public class CourseEducationEffectTO {
     public CourseEducationEffectTO(String symbol, String educationEffect) {
         this.symbol = symbol;
         this.educationEffect = educationEffect;
+    }
+
+    public CourseEducationEffectTO(int id, String symbol) {
+        this.id = id;
+        this.symbol = symbol;
     }
 
     public CourseEducationEffectTO() {
@@ -112,5 +132,13 @@ public class CourseEducationEffectTO {
 
     public void setEducationProgram(EducationProgramTO educationProgram) {
         this.educationProgram = educationProgram;
+    }
+
+    public List<SubjectEducationEffectTO> getSubjectEducationEffects() {
+        return subjectEducationEffects;
+    }
+
+    public void setSubjectEducationEffects(List<SubjectEducationEffectTO> subjectEducationEffects) {
+        this.subjectEducationEffects = subjectEducationEffects;
     }
 }

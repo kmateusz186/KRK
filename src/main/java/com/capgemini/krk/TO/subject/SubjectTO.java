@@ -27,7 +27,8 @@ public class SubjectTO {
         this.id = id;
     }
 
-    public SubjectTO(List<CourseEducationEffectTO> courseEducationEffects, List<SubjectCardTO> subjectCards) {
+    public SubjectTO(String namePL, List<CourseEducationEffectTO> courseEducationEffects, List<SubjectCardTO> subjectCards) {
+        this.namePL = namePL;
         this.courseEducationEffects = courseEducationEffects;
         this.subjectCards = subjectCards;
     }
