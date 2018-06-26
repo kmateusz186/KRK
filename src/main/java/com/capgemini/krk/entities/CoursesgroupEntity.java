@@ -1,6 +1,7 @@
 package com.capgemini.krk.entities;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +9,7 @@ import java.util.Objects;
 public class CoursesgroupEntity {
     private int id;
     private String name;
+    private List<CourseEntity> courses;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -43,5 +45,14 @@ public class CoursesgroupEntity {
     public int hashCode() {
 
         return Objects.hash(id, name);
+    }
+
+    @OneToMany(mappedBy = "coursesGroup")
+    public List<CourseEntity> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<CourseEntity> courses) {
+        this.courses = courses;
     }
 }

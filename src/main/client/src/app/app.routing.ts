@@ -14,6 +14,8 @@ import {CoursesModuleOverviewComponent} from './courses-module-mgmt/courses-modu
 import {CoursesModuleDetailsComponent} from './courses-module-mgmt/courses-module-details/courses-module-details.component';
 import {CoursesModuleOvOverviewComponent} from './courses-module-mgmt/courses-module-ov-overview/courses-module-ov-overview.component';
 import {CoursesModuleOvDetailsComponent} from './courses-module-mgmt/courses-module-ov-details/courses-module-ov-details.component';
+import {CourseOverviewComponent} from './course-mgmt/course-overview/course-overview.component';
+import {CourseDetailsComponent} from './course-mgmt/course-details/course-details.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -96,7 +98,7 @@ export const APP_ROUTES: Routes = [
             component: CoursesModuleOverviewComponent
           },
           {
-            path: 'details/:id',
+            path: 'details/:courseId/:semesterId',
             component: CoursesModuleDetailsComponent
           }
         ]
@@ -109,8 +111,21 @@ export const APP_ROUTES: Routes = [
             component: CoursesModuleOvOverviewComponent
           },
           {
-            path: 'details/:id',
+            path: 'details/:courseId/:ovModuleId',
             component: CoursesModuleOvDetailsComponent
+          }
+        ]
+      },
+      {
+        path: 'course',
+        children: [
+          {
+            path: 'overview/:id',
+            component: CourseOverviewComponent
+          },
+          {
+            path: 'details/:courseId/:coursesModuleId',
+            component: CourseDetailsComponent
           }
         ]
       }

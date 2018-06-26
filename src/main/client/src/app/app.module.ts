@@ -16,6 +16,8 @@ import {StudiesPlanMgmtModule} from './studies-plan-mgmt/studies-plan-mgmt.modul
 import {StudiesPlanService} from './studies-plan-mgmt/studies-plan.service';
 import {CoursesModuleMgmtModule} from './courses-module-mgmt/courses-module-mgmt.module';
 import {CoursesModuleService} from './courses-module-mgmt/courses-module.service';
+import {CourseMgmtModule} from './course-mgmt/course-mgmt.module';
+import {CourseService} from './course-mgmt/course.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import {CoursesModuleService} from './courses-module-mgmt/courses-module.service
     ChangeSuggestionMgmtModule,
     EducationProgramMgmtModule,
     StudiesPlanMgmtModule,
-    CoursesModuleMgmtModule
+    CoursesModuleMgmtModule,
+    CourseMgmtModule
   ],
-  providers: [BookService, ChangeSuggestionService, EducationProgramService, StudiesPlanService, CoursesModuleService],
+  providers: [BookService, ChangeSuggestionService, EducationProgramService, StudiesPlanService, CoursesModuleService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

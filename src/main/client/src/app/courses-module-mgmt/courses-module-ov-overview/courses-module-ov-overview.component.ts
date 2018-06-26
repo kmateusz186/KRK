@@ -14,7 +14,7 @@ export class CoursesModuleOvOverviewComponent implements OnInit {
   constructor(private coursesModuleService: CoursesModuleService, private route: ActivatedRoute, private router: Router) {
   }
 
-  ovModuleName: number;
+  ovModuleId: number;
 
   selectedCoursesModule: CoursesModule = {
     id: null,
@@ -40,6 +40,7 @@ export class CoursesModuleOvOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = +params['id'];
+      this.ovModuleId = id;
         this.coursesModuleService.findByOvModuleId(id).subscribe(
           coursesModules => this.currentCoursesModules = coursesModules
         );

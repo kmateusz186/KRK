@@ -27,7 +27,10 @@ export class CoursesModuleService {
 
     findById(coursesModuleId: number) {
       return this.http.get('http://localhost:8081/gui/courses-modules/' + coursesModuleId)
-        .map((response: Response) => response.json());
+        .map((response: Response) => {
+          console.log(response.json());
+          return response.json();
+        });
     }
 
     updateCoursesModule(coursesModule: CoursesModule) {

@@ -159,7 +159,7 @@ public class CoursesModuleServiceImpl implements CoursesModuleService {
             coursesmoduleEntity.setModuleType(moduletypeEntity);
         }
         CoursesmoduleEntity coursesmoduleEntityOv = null;
-        if(coursesModule.getOvModule() != null) {
+        if(coursesModule.getOvModule().getModuleType().getName() != null) {
             coursesmoduleEntityOv = coursesModuleRepository.findByModuleTypeName(coursesModule.getOvModule().getModuleType().getName());
             if (coursesmoduleEntityOv == null) {
                 coursesmoduleEntity.setOvModule(coursesModuleRepository.save(coursesmoduleEntity.getOvModule()));
@@ -184,7 +184,7 @@ public class CoursesModuleServiceImpl implements CoursesModuleService {
             coursesmoduleEntity.setModuleType(moduletypeEntity);
         }
         CoursesmoduleEntity coursesmoduleEntityOv = null;
-        if(coursesModule.getOvModule()!= null) {
+        if(coursesModule.getOvModule().getModuleType().getName()!= null) {
             coursesmoduleEntityOv = coursesModuleRepository.findByModuleTypeName(coursesModule.getOvModule().getModuleType().getName());
             if (coursesmoduleEntityOv == null) {
                 coursesmoduleEntity.setOvModule(coursesModuleRepository.save(coursesmoduleEntity.getOvModule()));

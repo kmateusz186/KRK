@@ -1,0 +1,115 @@
+<section class="container-fluid">
+
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesChanged">Zmiana kursu</div>
+  <div class="alert alert-success" role="alert" *ngIf="showCoursesAdded">Dodany kurs</div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-6"><h3 class="panel-title">Kurs:</h3></div>
+        <div class="col-lg-6">
+          <button class="btn btn-success pull-right" (click)="saveCourse()">Zapisz</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <tr>
+          <td>Nazwa:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.name" (input)="course.name = $event.target.value"></td>
+          <td>Sposób zaliczenia:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.passingWay.name" (input)="course.passingWay.name = $event.target.value"></td>
+          <td>Przedmiot:</td>
+          <td rowspan="2"><input type="text" class="form-control" placeholder=""
+                     [value]="course.subject.namePL" (input)="course.subject.namePL = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>ECTS:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.ects" (input)="course.ects = $event.target.value"></td>
+          <td>Kod kursu:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.code" (input)="course.code = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Rodzaj:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.kind.name" (input)="course.kind.name = $event.target.value"></td>
+          <td>Typ kursu:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.courseType.name" (input)="course.courseType.name = $event.target.value"></td>
+          <td>Forma kursu:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.courseForm.name" (input)="course.courseForm.name = $event.target.value"></td>
+        </tr>
+        <tr>
+          <td>Techniczny:</td>
+          <td><input [attr.disabled]="true" type="checkbox" class="form-control" placeholder=""
+                     #saveTechnicalCheckBox
+                     id="saveTechnicalCheckBox"
+                     [checked]="saveTechnical"
+                     (change)="onSaveTechnicalChanged(saveTechnicalCheckBox.checked)"></td>
+          <td colspan="4"><b>Kierunkowe efekty kształcenia</b></td>
+        </tr>
+        <tr>
+          <td>Typ zajęć:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.classesType.name" (input)="course.classesType.name = $event.target.value"></td>
+          <td rowspan="3" colspan="4">
+            <table class="table table-striped books">
+              <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Symbol</th>
+                <th>Opis</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let courseEducationEffect of course.subject.courseEducationEffects">
+                <td><input type="checkbox" class="form-control" placeholder=""
+                           [value]="true"></td>
+                <td>{{courseEducationEffect.symbol}}</td>
+                <td>{{courseEducationEffect.educationEffect}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Grupa kursów:</td>
+          <td><input type="text" class="form-control" placeholder=""
+                     [value]="course.coursesGroup.name" (input)="course.coursesGroup.name = $event.target.value"></td>
+        </tr>
+      </table>
+        <div class="col-lg-6"><h4 class="panel-title">Kursy w grupie:</h4></div>
+        <table class="table table-striped books ">
+          <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Kod</th>
+            <th>Nazwa</th>
+            <th>ECTS</th>
+            <th>Forma</th>
+            <th>Sposób zaliczenia</th>
+            <th>Rodzaj</th>
+            <th>Typ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let course of course.coursesGroup.courses">
+            <td><input type="checkbox" class="form-control" placeholder="" [value]="true"></td>
+            <td>{{course.code}}</td>
+            <td>{{course.name}}</td>
+            <td>{{course.ects}}</td>
+            <td>{{course.courseForm.name}}</td>
+            <td>{{course.passingWay.name}}</td>
+            <td>{{course.kind.name}}</td>
+            <td>{{course.courseType.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</section>

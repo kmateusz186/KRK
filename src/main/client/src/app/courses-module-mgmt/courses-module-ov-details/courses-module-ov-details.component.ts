@@ -17,7 +17,15 @@ export class CoursesModuleOvDetailsComponent implements OnInit {
     ovModule: {id: null, moduleType: {id: null, name: null}, ovModule: null, semesters: [], studiesPlans: []},
     semesters: [],
     studiesPlans: [],
-  }
+  };
+
+  selectedOvCoursesModule: CoursesModule = {
+    id: null,
+    moduleType: {id: null, name: null},
+    ovModule: {id: null, moduleType: {id: null, name: null}, ovModule: null, semesters: [], studiesPlans: []},
+    semesters: [],
+    studiesPlans: [],
+  };
 
   updateMode: boolean;
   showCoursesModuleChanged: boolean;
@@ -30,11 +38,16 @@ export class CoursesModuleOvDetailsComponent implements OnInit {
     this.updateMode = false;
     this.showCoursesModuleChanged = false;
     this.route.params.subscribe(params => {
-      const id = +params['id'];
-      if (id!=0) {
+      const courseId = +params['courseId'];
+      const ovModuleId =+params['ovModuleId'];
+      if (courseId!=0) {
         this.updateMode = true;
-        this.coursesModuleService.findById(id).subscribe(
+        this.coursesModuleService.findById(courseId).subscribe(
           coursesModule => this.selectedCoursesModule = coursesModule
+        );
+      } else {
+        this.coursesModuleService.findById(ovModuleId).subscribe(
+          coursesOvModule => this.selectedOvCoursesModule = coursesOvModule
         );
       }
     });

@@ -37,6 +37,19 @@ public class CourseEducationEffectTO {
         this.scienceArea = scienceArea;
     }
 
+
+    public CourseEducationEffectTO(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public CourseEducationEffectTO(String symbol, String educationEffect) {
+        this.symbol = symbol;
+        this.educationEffect = educationEffect;
+    }
+
+    public CourseEducationEffectTO() {
+    }
+
     public int getId() {
         return id;
     }

@@ -1,0 +1,41 @@
+<section class="container-fluid">
+  <div class="alert alert-success" role="alert" *ngIf="showCourseDeleted">Usunięcie kursu</div>
+  <div class="alert alert-success" role="alert" *ngIf="showCourseAdded">Dodanie kursu</div>
+  <section [hidden]="thereAreCoursesToDisplay()">
+    <p>Brak kursów.</p>
+  </section>
+  <section [hidden]="!thereAreCoursesToDisplay()">
+    <div><h3 class="panel-title">Kursy:</h3></div>
+    <table class="table table-striped books">
+      <thead>
+      <tr>
+        <th>Kod</th>
+        <th>Nazwa</th>
+        <th>KEK</th>
+        <th>ECTS</th>
+        <th>Forma</th>
+        <th>Sposób zaliczenia</th>
+        <th>Rodzaj</th>
+        <th>Typ</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let course of currentCourses">
+        <td>{{course.code}}</td>
+        <td>{{course.name}}</td>
+        <td *ngFor="let effect of course.subject.courseEducationEffects">{{effect.symbol}}</td>
+        <td>{{course.ects}}</td>
+        <td>{{course.courseForm.name}}</td>
+        <td>{{course.passingWay.name}}</td>
+        <td>{{course.kind.name}}</td>
+        <td>{{course.courseType.name}}</td>
+        <td><button class="btn btn-success pull-right" [routerLink]="['/app/course/details', course.id, 0]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteCourse(course)">Usuń</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <div>
+    <button class="btn btn-success pull-right" [routerLink]="['/app/course/details', 0, this.coursesModuleId]">Dodaj</button>
+  </div>
+</section>

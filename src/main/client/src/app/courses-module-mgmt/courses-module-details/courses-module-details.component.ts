@@ -32,17 +32,16 @@ export class CoursesModuleDetailsComponent implements OnInit {
     this.updateMode = false;
     this.showCoursesModuleChanged = false;
     this.route.params.subscribe(params => {
-      const id = +params['id'];
-      if (id!=0) {
-        this.coursesModuleService.findById(id).subscribe(
+      const courseId = +params['courseId'];
+      const semesterId = +params['semesterId'];
+      if (courseId != 0) {
+        this.updateMode = true;
+        this.coursesModuleService.findById(courseId).subscribe(
           coursesModule => this.selectedCoursesModule = coursesModule
         );
-        if(this.selectedCoursesModule.id == null) {
-          this.updateMode = false;
-          this.semesterId = id;
-        } else {
-          this.updateMode = true;
-        }
+      } else {
+        this.updateMode = false;
+        this.semesterId = semesterId;
       }
     });
   }

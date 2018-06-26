@@ -17,12 +17,12 @@
       <tbody>
       <tr *ngFor="let coursesModule of currentCoursesModules">
         <td>{{coursesModule.moduleType.name}}</td>
-        <td><button class="btn btn-success pull-right" (click)="goToCoursesModulesOv(coursesModule)">Moduły</button> <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/details', coursesModule.id]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteCoursesModule(coursesModule)">Usuń</button></td>
+        <td><button class="btn btn-success pull-right" (click)="goToCoursesModulesOv(coursesModule)">Moduły</button> <button class="btn btn-success pull-right" [routerLink]="['/app/course/overview', coursesModule.id]">Kursy</button> <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/details', coursesModule.id, 0]">Edytuj</button> <button class="btn btn-success pull-right" (click)="selectAndDeleteCoursesModule(coursesModule)">Usuń</button></td>
       </tr>
       </tbody>
     </table>
   </section>
   <div>
-    <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/details', semesterId]">Dodaj</button>
+    <button class="btn btn-success pull-right" [routerLink]="['/app/courses-module/details', 0, semesterId]">Dodaj</button>
   </div>
 </section>

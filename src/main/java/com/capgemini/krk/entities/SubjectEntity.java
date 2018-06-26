@@ -14,6 +14,7 @@ public class SubjectEntity {
     private String prerequisites;
     private List<CourseEntity> courses;
     private List<CourseeducationeffectEntity> courseEducationEffects;
+    private List<SubjectcardEntity> subjectCards;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -100,5 +101,14 @@ public class SubjectEntity {
 
     public void setCourseEducationEffects(List<CourseeducationeffectEntity> courseEducationEffects) {
         this.courseEducationEffects = courseEducationEffects;
+    }
+
+    @OneToMany(mappedBy = "subject")
+    public List<SubjectcardEntity> getSubjectCards() {
+        return subjectCards;
+    }
+
+    public void setSubjectCards(List<SubjectcardEntity> subjectCards) {
+        this.subjectCards = subjectCards;
     }
 }
