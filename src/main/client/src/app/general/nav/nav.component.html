@@ -2,33 +2,35 @@
   <div class="row">
     <div class="col-lg-3">
       <a class="nav-item nav-link" routerLinkActive="active" routerLink="/app/home">
-        <h3 class="nav-text">Krajowe Ramy Kwalifikacji</h3>
+        <h3 class="nav-text">{{ 'app.title' | translate }}</h3>
       </a>
     </div>
     <div class="col-lg-9">
       <ul>
         <li class="nav-item" routerLinkActive="active">
           <div class="dropdown">
-            <button class="dropbtn">Sugestie zmian
+            <button class="dropbtn">{{ 'app.changeSuggestionMain' | translate }}
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ep/overview">Planów, programów</a>
-              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ef/overview">Efektów</a>
+              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ep/overview">{{ 'app.changeSuggestionF' | translate }}</a>
+              <a class="nav-link nav-text" routerLink="/app/change-suggestion-ef/overview">{{ 'app.changeSuggestionS' | translate}}</a>
             </div>
           </div>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <div class="dropdown">
-            <button class="dropbtn">Programy kształcenia
+            <button class="dropbtn">{{ 'app.educationProgramMain' | translate }}
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a class="nav-link nav-text" routerLink="/app/education-program-edit/overview">Edycja</a>
-              <a class="nav-link nav-text" routerLink="/app/education-program/overview">Przegląd</a>
+              <a class="nav-link nav-text" routerLink="/app/education-program-edit/overview">{{ 'app.educationProgramF' | translate }}</a>
+              <a class="nav-link nav-text" routerLink="/app/education-program/overview">{{ 'app.educationProgramS' | translate }}</a>
             </div>
           </div>
         </li>
+        <li class="float-right nav-link nav-text" (click)="useLanguage('pl')">pl</li>
+        <li class="float-right nav-link nav-text" (click)="useLanguage('en')">en</li>
       </ul>
     </div>
   </div>

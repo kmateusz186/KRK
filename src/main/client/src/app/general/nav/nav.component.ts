@@ -1,5 +1,6 @@
 import {Component, Inject} from "@angular/core";
 import {DOCUMENT} from "@angular/platform-browser";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-nav',
@@ -10,8 +11,9 @@ export class NavComponent {
     currentBuild: CurrentBuild;
     navCollapsed: boolean = true;
 
-    constructor(@Inject(DOCUMENT) private document: any) {
+    constructor(@Inject(DOCUMENT) private document: any, private translate: TranslateService) {
         this.setCurrentBuildInfoFromDocumentHeadMeta();
+        translate.setDefaultLang('pl');
     }
 
     private doesNotStartWith$(content: string): boolean {
@@ -38,6 +40,10 @@ export class NavComponent {
     toggleNavigation(): void {
         this.navCollapsed = !this.navCollapsed;
     };
+
+    useLanguage(language: string) {
+      this.translate.use(language);
+    }
 }
 
 class CurrentBuild {

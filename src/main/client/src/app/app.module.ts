@@ -18,6 +18,9 @@ import {CourseMgmtModule} from './course-mgmt/course-mgmt.module';
 import {CourseService} from './course-mgmt/course.service';
 import {SubjectCardService} from './subject-card-mgmt/subject-card.service';
 import {SubjectCardMgmtModule} from './subject-card-mgmt/subject-card-mgmt.module';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {Http} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -34,11 +37,25 @@ import {SubjectCardMgmtModule} from './subject-card-mgmt/subject-card-mgmt.modul
     StudiesPlanMgmtModule,
     CoursesModuleMgmtModule,
     CourseMgmtModule,
-    SubjectCardMgmtModule
+    SubjectCardMgmtModule,
+    TranslateModule.forRoot( {
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [Http]
+      }
+    })
   ],
   providers: [ChangeSuggestionService, EducationProgramService, StudiesPlanService, CoursesModuleService, CourseService, SubjectCardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
+  constructor( ){
+  }
+
+}
+
+export function HttpLoaderFactory(http: Http) {
+  return new TranslateHttpLoader(http);
 }
