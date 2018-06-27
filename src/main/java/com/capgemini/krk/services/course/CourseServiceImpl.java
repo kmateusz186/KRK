@@ -91,7 +91,8 @@ public class CourseServiceImpl implements CourseService {
                 .collect(Collectors.toList());
 
         CoursesTO coursesTO = new CoursesTO(courseTOList);
-
+        //if(!courseTOList.isEmpty())
+        //   throw new NullPointerException();
         return coursesTO;
     }
 

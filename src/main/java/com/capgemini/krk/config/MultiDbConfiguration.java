@@ -26,17 +26,17 @@ public class MultiDbConfiguration {
 
         DataSourceBuilder dataSourceBuilder1 = new DataSourceBuilder(this.getClass().getClassLoader());
         dataSourceBuilder1.driverClassName("com.mysql.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306/krkdb?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC")
+                .url("jdbc:mysql://192.168.100.11:3306/sample?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC")
                 .username("root")
-                .password("ROOT");
+                .password("root");
 
         resolvedDataSources.put(DbContextEnum.DB1, dataSourceBuilder1.build());
 
         DataSourceBuilder dataSourceBuilder2 = new DataSourceBuilder(this.getClass().getClassLoader());
         dataSourceBuilder2.driverClassName("com.mysql.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306/krkdb2?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC")
+                .url("jdbc:mysql://192.168.100.12:3306/sample?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC")
                 .username("root")
-                .password("ROOT");
+                .password("root");
 
         resolvedDataSources.put(DbContextEnum.DB2, dataSourceBuilder2.build());
 

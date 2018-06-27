@@ -18,6 +18,7 @@ public class DbAspect {
             return result;
         } catch (Exception e) {
             DbContext.setContext(DbContextEnum.DB2);
+            System.out.println("Database changed");
             throw e;
         }
     }

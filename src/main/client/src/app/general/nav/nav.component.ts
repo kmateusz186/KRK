@@ -16,6 +16,10 @@ export class NavComponent {
         translate.setDefaultLang('pl');
     }
 
+    useLanguage(language: string) {
+      this.translate.use(language);
+    }
+
     private doesNotStartWith$(content: string): boolean {
         return !(content && content.indexOf('$') === 0);
     }
@@ -41,9 +45,6 @@ export class NavComponent {
         this.navCollapsed = !this.navCollapsed;
     };
 
-    useLanguage(language: string) {
-      this.translate.use(language);
-    }
 }
 
 class CurrentBuild {
